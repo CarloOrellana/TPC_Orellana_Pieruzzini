@@ -13,7 +13,7 @@ namespace Dominio
 
         public string DescricpcionArticulo { get; set; }
 
-        public string Produccion { get; set; }
+        public int Produccion { get; set; }
 
         public int Stock { get; set; }
 
