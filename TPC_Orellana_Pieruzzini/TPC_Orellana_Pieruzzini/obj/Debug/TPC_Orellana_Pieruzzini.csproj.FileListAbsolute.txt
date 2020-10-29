@@ -74,6 +74,7 @@ C:\Users\carlos\Desktop\tpProg3Pruebas\TPC_Orellana_Pieruzzini\TPC_Orellana_Pier
 C:\Users\carlos\Desktop\tpProg3Pruebas\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\obj\Debug\TPC_Orellana_Pieruzzini.csproj.CopyComplete
 C:\Users\carlos\Desktop\tpProg3Pruebas\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\obj\Debug\TPC_Orellana_Pieruzzini.dll
 C:\Users\carlos\Desktop\tpProg3Pruebas\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\obj\Debug\TPC_Orellana_Pieruzzini.pdb
+<<<<<<< HEAD
 C:\Users\Administrador\Downloads\TPC_Orellana_Pieruzzini-master\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\bin\TPC_Orellana_Pieruzzini.dll.config
 C:\Users\Administrador\Downloads\TPC_Orellana_Pieruzzini-master\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\bin\TPC_Orellana_Pieruzzini.dll
 C:\Users\Administrador\Downloads\TPC_Orellana_Pieruzzini-master\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\bin\TPC_Orellana_Pieruzzini.pdb
@@ -226,3 +227,5 @@ C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieru
 C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\obj\Debug\TPC_Orellana_Pieruzzini.csproj.CopyComplete
 C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\obj\Debug\TPC_Orellana_Pieruzzini.dll
 C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\obj\Debug\TPC_Orellana_Pieruzzini.pdb
+=======
+>>>>>>> e20224821b4f9655dec5abc644cad1e1f2e50876
