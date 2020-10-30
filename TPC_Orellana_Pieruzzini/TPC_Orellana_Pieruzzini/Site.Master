@@ -39,12 +39,11 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-dark bg-primary">
+        <div class="navbar navbar-dark" style="background-color:cadetblue">
             <div class="container">
             <ul class="nav navbar-nav">
-                <li>
-                    <asp:Label ID="Label1" runat="server" Text="Aplicacion de Nestor" Style="font-size: 3.5rem; color: white; padding:10px "></asp:Label></li>
-                <li><a runat="server" href="~/" style="font-size: 3rem; color: white ;  padding:13px,20px">Inicio</a></li>
+                <li style="text-align:left; padding:0px;"><asp:Label ID="Label1" runat="server" Text="Aplicacion de Nestor" Style="font-size: 3.5rem; color: black; padding:0px 10px 10px 10px "></asp:Label></li>
+                <li><a runat="server" href="~/" style="font-size: 3rem; color: black ;  padding:13px,20px">Inicio</a></li>
                 <li><a runat="server" href="~/About" style="font-size: 3rem; color: black; padding:13px,20px">Acerca de Nosotros</a></li>
                 <li><a runat="server" href="~/Contact" style="font-size: 3rem; color: black; padding:13px,20px">Contacto</a></li>
             </ul>
