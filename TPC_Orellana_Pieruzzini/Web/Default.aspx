@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Catalogo" Language="C#"AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="Web.Default" %>
+﻿<%@ Page Title="Login" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="Web.Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -21,10 +21,10 @@
                 <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" CssClass="btn btn-outline-secondary" Style="font-size: large; color: white;  width: 200px; text-align: center; display: inline-block" />
             </div>
         <div style="text-align:center">
-            <a href="..." style="color:white">¿Recuperar contraseña?</a>
+            <a href="RecuperarContraseña.aspx" style="color:white">¿Recuperar contraseña?</a>
         </div>
         <div style="text-align:center">
-            <a href="..." style="color:white">Registrarse</a>
+            <a href="Registrarse.aspx" style="color:white">Registrarse</a>
         </div>
         
        
