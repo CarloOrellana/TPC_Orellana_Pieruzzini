@@ -9,31 +9,31 @@ namespace Dominio
 {
     public class AccesoDatos
     {
-        public SqlConnection conexion { get; set; }
+        public SqlConnection Conexion { get; set; }
 
-        public SqlCommand comando { get; set; }
+        public SqlCommand Comando { get; set; }
 
-        public SqlDataReader lector { get; set; }
+        public SqlDataReader Lector { get; set; }
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("data source=(local); initial catalog=PieruzziniPlaOrellana_DB; integrated security=sspi");
-            comando = new SqlCommand();
-            comando.Connection = conexion;
+            Conexion = new SqlConnection("data source=DESKTOP-GPR5PDL\\SQLEXPRESS; initial catalog=CATALOGO_DB; integrated security=sspi");
+            Comando = new SqlCommand();
+            Comando.Connection = Conexion;
         }
 
         public void Setear(string consulta)
         {
-            comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = consulta;
+            Comando.CommandType = System.Data.CommandType.Text;
+            Comando.CommandText = consulta;
         }
 
         public void Consultar()
         {
             try
             {
-                conexion.Open();
-                lector = comando.ExecuteReader();
+                Conexion.Open();
+                Lector = Comando.ExecuteReader();
             }
             catch (Exception ex)
             {
@@ -41,14 +41,14 @@ namespace Dominio
             }
         }
 
-        public void cerrar()
+        public void Cerrar()
         {
-            conexion.Close();
+            Conexion.Close();
         }
 
-        public void agregar(string nombre, object valor)
+        public void Agregar(string Nombre, object Valor)
         {
-            comando.Parameters.AddWithValue(nombre, valor);
+            Comando.Parameters.AddWithValue(Nombre, Valor);
         }
 
 
@@ -56,8 +56,8 @@ namespace Dominio
         {
             try
             {
-                conexion.Open();
-                comando.ExecuteNonQuery();
+                Conexion.Open();
+                Comando.ExecuteNonQuery();
             }
             catch (Exception)
             {
@@ -66,7 +66,7 @@ namespace Dominio
             }
             finally
             {
-                conexion.Close();
+               Conexion.Close();
             }
         }
     }
