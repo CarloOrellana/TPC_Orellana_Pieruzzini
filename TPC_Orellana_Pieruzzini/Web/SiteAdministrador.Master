@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteClientes.Master.cs" Inherits="Web.Clientes" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteAdministrador.master.cs" Inherits="Web.SiteAdministrador" %>
 
 <!DOCTYPE html>
 
@@ -17,7 +17,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body style="padding:0px; background-color:#4b7583">
+<body style="padding:0px; background-color:#4b7583 ">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -39,22 +39,14 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-expand-sm bg-dark navbar-dark" style="text-align: left; background-image: -webkit-radial-gradient(top, circle cover, #4e7a89, #2e3441 80%);">
-            <div class="row">
-                <div class="col-md-8">
-                    <ul class="navbar-nav">
-                        <li><a runat="server" href="~/DefaultClientes.aspx" class="text-white" style="font-size: x-large; padding: 0px 30px;">Catalogo</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 col-md-offset-4" >
-                    <ul class="navbar-nav" >
-                        <li><a runat="server" href="~/Perfil.aspx" class="text-white" style="font-size: x-large; padding: 30px 30px;">Perfil</a></li>
-                        <li><a runat="server" href="~/Carrito.aspx" class="text-white" style="font-size: x-large; padding: 30px 30px; "><img src="carrito.png" style="width:40px; height:30px;" /></a></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="navbar navbar-expand-sm bg-dark navbar-dark" style="text-align:left; background-image: -webkit-radial-gradient(top, circle cover, #4e7a89, #2e3441 80%);">
+            <ul class="navbar-nav">
+                <li><a runat="server" href="~/PerfilAdministrador.aspx" class="text-white" style="font-size:x-large; padding:0px 30px;">Perfil</a></li>
+                <li><a runat="server" href="~/DefaultAdministrador.aspx" class="text-white" style="font-size:x-large; padding:0px 30px;">Opciones</a></li>
+            </ul>
+             
         </div>
-      
+        
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
