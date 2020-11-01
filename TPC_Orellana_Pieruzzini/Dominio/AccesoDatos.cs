@@ -17,7 +17,7 @@ namespace Dominio
 
         public AccesoDatos()
         {
-            Conexion = new SqlConnection("data source=DESKTOP-GPR5PDL\\SQLEXPRESS; initial catalog=CATALOGO_DB; integrated security=sspi");
+            Conexion = new SqlConnection("data source=(local); initial catalog=PieruzziniPlaOrellana_DB; integrated security=sspi");
             Comando = new SqlCommand();
             Comando.Connection = Conexion;
         }
