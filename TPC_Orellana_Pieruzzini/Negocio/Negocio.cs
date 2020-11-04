@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             List<Articulo> lista = new List<Articulo>();
 
-            //try
+            try
             {
                 datos.Setear("select * from Articulos");
                 datos.Consultar();
@@ -24,19 +25,21 @@ namespace Negocio
                     Articulo aux = new Articulo();
                     aux.Codigo = datos.Lector.GetString(1);
                     aux.Descripcion = datos.Lector.GetString(2);
-                    //aux.Stock = datos.Lector.GetInt32(3);
+                    aux.Stock = (int)datos.Lector.GetInt64(3);
                     aux.Precio = datos.Lector.GetDecimal(4);
-                   
-                   // aux.UrlImagen = (string)datos.Lector["UrlImagen"];
+
+                   // aux.UrlImagen = NewMethod(datos);
                     lista.Add(aux);
                 }
             }
-           // catch (Exception ex)
+            catch (Exception ex)
             {
-            //    throw ex;
+               throw ex;
             }
             datos.Cerrar();
             return lista;
         }
+
+      
     }
 }

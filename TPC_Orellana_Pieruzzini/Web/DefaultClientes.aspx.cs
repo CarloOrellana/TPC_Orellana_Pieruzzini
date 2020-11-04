@@ -11,11 +11,12 @@ namespace Web
 {
     public partial class DefaultClientes : System.Web.UI.Page
     {
+        public List<Articulo> Listar { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Negocio.Negocio negocio = new Negocio.Negocio();
-            GridView1.DataSource = negocio.Listar();
-            GridView1.DataBind();
+            Listar = negocio.Listar();
             
         }
     }
