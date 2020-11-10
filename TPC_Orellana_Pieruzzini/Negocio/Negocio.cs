@@ -6,14 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Dominio;
 
-namespace Negocio
+namespace Negocios
 {
     public class Negocio
     {
         public List<Articulo> Listar()
         {
-            AccesoDatos datos = new AccesoDatos();
             List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            
 
             try
             {
@@ -23,12 +24,14 @@ namespace Negocio
                 while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
+                    aux.Id = datos.Lector.GetInt32(0); 
                     aux.Codigo = datos.Lector.GetString(1);
                     aux.Descripcion = datos.Lector.GetString(2);
                     aux.Stock = (int)datos.Lector.GetInt64(3);
                     aux.Precio = datos.Lector.GetDecimal(4);
 
-                   // aux.UrlImagen = NewMethod(datos);
+                    // aux.UrlImagen = NewMethod(datos);
+                   // aux.UrlImagen= (string)datos.Lector["Imagen"];
                     lista.Add(aux);
                 }
             }
@@ -40,6 +43,33 @@ namespace Negocio
             return lista;
         }
 
-      
+       public List<MateriaPrima> ListarMateria()
+        {
+            List<MateriaPrima> lista = new List<MateriaPrima>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.Setear("select * from MateriaPrima");
+                datos.Consultar();
+            
+                while (datos.Lector.Read())
+                {
+                MateriaPrima aux = new MateriaPrima();
+                aux.Id = datos.Lector.GetInt32(0);
+                aux.Descripcion = datos.Lector.GetString(1);
+                aux.Stock =(int)datos.Lector.GetInt64(2);
+
+                lista.Add(aux);
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            datos.Cerrar();
+            return lista;
+
+        }
     }
 }

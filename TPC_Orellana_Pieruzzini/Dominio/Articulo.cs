@@ -9,6 +9,7 @@ namespace Dominio
     public class Articulo
     {
         private string urlImagen;
+        public int Id { get; set; }
 
         public string Codigo { get; set; }
 
@@ -18,8 +19,8 @@ namespace Dominio
 
         public decimal Precio { get; set; }
 
-        public string UrlImagen { get => urlImagen; set => urlImagen = value; }
-
+        //public string UrlImagen { get => urlImagen; set => urlImagen = value; }
+        //public string UrlImagen { get; set; }
         public bool Estado { get; set; }
     }
 }

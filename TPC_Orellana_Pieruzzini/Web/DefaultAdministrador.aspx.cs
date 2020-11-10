@@ -13,5 +13,10 @@ namespace Web
         {
 
         }
+
+        public void btnListado_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Listados.aspx");
+        }
     }
 }

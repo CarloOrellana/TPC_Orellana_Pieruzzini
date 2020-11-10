@@ -154,3 +154,7 @@ C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieru
 C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Web\bin\Negocio.dll
 C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Web\bin\Dominio.pdb
 C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Web\bin\Negocio.pdb
+C:\Users\carlos\Desktop\git\TPCuatrimestral\TPC_Orellana_Pieruzzini\Web\bin\Dominio.dll
+C:\Users\carlos\Desktop\git\TPCuatrimestral\TPC_Orellana_Pieruzzini\Web\bin\Negocio.dll
+C:\Users\carlos\Desktop\git\TPCuatrimestral\TPC_Orellana_Pieruzzini\Web\bin\Dominio.pdb
+C:\Users\carlos\Desktop\git\TPCuatrimestral\TPC_Orellana_Pieruzzini\Web\bin\Negocio.pdb

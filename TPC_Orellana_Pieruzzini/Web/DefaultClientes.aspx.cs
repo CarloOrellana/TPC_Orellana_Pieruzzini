@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
-using Negocio;
+using Negocios;
 
 namespace Web
 {
@@ -15,7 +15,7 @@ namespace Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Negocio.Negocio negocio = new Negocio.Negocio();
+            Negocio negocio = new Negocio();
             Listar = negocio.Listar();
             
         }

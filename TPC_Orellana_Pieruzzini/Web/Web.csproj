@@ -124,6 +124,7 @@
     <Content Include="Detalle.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Listados.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="PerfilAdministrador.aspx" />
     <Content Include="RecuperarContraseña.aspx" />
@@ -303,6 +304,13 @@
     </Compile>
     <Compile Include="Detalle.aspx.designer.cs">
       <DependentUpon>Detalle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Listados.aspx.cs">
+      <DependentUpon>Listados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Listados.aspx.designer.cs">
+      <DependentUpon>Listados.aspx</DependentUpon>
     </Compile>
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
