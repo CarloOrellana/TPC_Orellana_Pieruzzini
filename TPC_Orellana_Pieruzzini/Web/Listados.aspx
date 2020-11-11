@@ -27,7 +27,7 @@
         <div class="row" style="text-align:center; display:initial;">
         <asp:GridView ID="dgvListas" OnRowDataBound="dgvListas_RowDataBound"  runat="server" style="width:700px; height:445px; margin: 20px auto; border-color:white; color:white;" ></asp:GridView>
         </div>
-
+        
     </div>
 
 </asp:Content>

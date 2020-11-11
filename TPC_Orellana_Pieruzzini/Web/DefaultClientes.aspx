@@ -11,7 +11,7 @@
 
                     <div class="card-body">
                        <div class="card text-center"" style="border-color:black; height:530px; width:300px">
-                         <img src="<%=item.UrlImagen %>" class="card-img-top" alt="..."  style="width:290px"/>
+                         <img src="<%=item.UrlImagen %>" class="card-img-top" alt="No funciona"  style="width:290px"/>
                            <div class="card-footer" >
                                <p class="card-title" style="font-size:1.5rem"><%=item.Descripcion %></p>
                               <p class="card-title" style="font-size:2rem"><b>$<%=item.Precio %></b></p>

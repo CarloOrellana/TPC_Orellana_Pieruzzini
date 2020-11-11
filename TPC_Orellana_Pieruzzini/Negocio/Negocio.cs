@@ -31,7 +31,7 @@ namespace Negocios
                     aux.Precio = datos.Lector.GetDecimal(4);
 
                     // aux.UrlImagen = NewMethod(datos);
-                   // aux.UrlImagen= (string)datos.Lector["Imagen"];
+                   aux.UrlImagen= (string)datos.Lector["Imagen"];
                     lista.Add(aux);
                 }
             }

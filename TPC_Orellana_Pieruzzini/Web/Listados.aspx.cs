@@ -9,11 +9,12 @@ using Negocios;
 namespace Web
 {
     public partial class Listados : System.Web.UI.Page
-    {  
-
+    {
+        public int j;
         public void btnArticulos_Click(object sender, EventArgs e)
         {
             Negocio negocio = new Negocio();
+            j = 1;
             dgvListas.DataSource = negocio.Listar();
             dgvListas.DataBind();
         }
@@ -21,6 +22,7 @@ namespace Web
         public void btnMateriales_Click(object sender, EventArgs e)
         {
             Negocio negocio = new Negocio();
+            j = 2;
             dgvListas.DataSource = negocio.ListarMateria();
             dgvListas.DataBind();
         }
@@ -31,15 +33,17 @@ namespace Web
         }
          protected void dgvListas_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            //e.Row.Cells[0].Visible = false;
-            //e.Row.Cells[5].Visible = false;
-            for(int i =0; i< dgvListas.Columns.Count;i++)
+            if(j == 1)
             {
-                if(dgvListas.Columns[i].HeaderText == "Id")
-                {
-                    dgvListas.Columns[i].Visible = false;
-                }
+                e.Row.Cells[0].Visible = false;
+                e.Row.Cells[5].Visible = false;
             }
+            else if(j == 2)
+            {
+                e.Row.Cells[0].Visible = false;
+            }
+
+
         }
 
     }

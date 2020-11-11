@@ -20,7 +20,7 @@ namespace Dominio
         public decimal Precio { get; set; }
 
         //public string UrlImagen { get => urlImagen; set => urlImagen = value; }
-        //public string UrlImagen { get; set; }
+        public string UrlImagen { get; set; }
         public bool Estado { get; set; }
     }
 }
