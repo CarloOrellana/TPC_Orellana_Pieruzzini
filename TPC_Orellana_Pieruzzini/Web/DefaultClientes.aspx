@@ -10,6 +10,7 @@
                      {%>
 
                     <div class="card-body">
+                       <asp:Image ID="Image1" runat="server" />
                        <div class="card text-center"" style="border-color:black; height:530px; width:300px">
                          <img src="<%=item.UrlImagen %>" class="card-img-top" alt="No funciona"  style="width:290px"/>
                            <div class="card-footer" >

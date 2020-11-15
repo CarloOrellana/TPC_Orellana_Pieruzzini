@@ -1,5 +1,6 @@
 create database PieruzziniPlaOrellana_DB
 go
+use master
 use PieruzziniPlaOrellana_DB
 go
 create table Articulos
@@ -10,7 +11,7 @@ create table Articulos
  Stock bigint not null,
  Precio money,
  Estado bit not null,
- Imagen image null
+ Imagen varchar(1000) not null
  )
   go
 create table MateriaPrima
@@ -111,7 +112,7 @@ insert into MateriaPrima(Descripcion,Stock) values('P12',54)
 
 /*Articulos*/
 insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Imagen)
-values ('T1','Taco Niño',22,30,1,'C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\T1.jpg')
+values ('T1','Taco Niño',22,30,1,'C:\Carlos\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\T1.jpg')
 insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Imagen)
 values ('T2','Taco Niño',24,30,1,'C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\T2.jpg')
 insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Imagen)
@@ -123,17 +124,17 @@ values ('T5','Taco Adulto',75,54,1,'C:\Users\Administrador\Desktop\GitHub\TPC_Or
 insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Imagen)
 values ('T6','Taco Adulto',72,54,1,'C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\T6.jpg')
 insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Imagen)
-values ('T7','Taco Adulto',0,0,0,NULL)
+values ('T7','Taco Adulto',0,0,0,'C:\Carlos\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\P8.jpg')
 insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Imagen)
-values ('P8','Puntera Adulto',151,54,1,'C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\P8.jpg')
+values ('P8','Puntera Adulto',151,54,1,'C:\Carlos\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\P8.jpg')
 insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Imagen)
-values ('P9','Taco Adulto',0,0,0,NULL)
+values ('P9','Taco Adulto',0,0,0,'C:\Carlos\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\P8.jpg')
 insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Imagen)
 values ('P10','Puntera Adulto',84,54,1,'C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\P10.jpg')
 insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Imagen)
 values ('T11','Taco Adulto',52,54,1,'C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\T11.jpg')
 insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Imagen)
-values ('P12','Puntera Adulto',24,54,1,'C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\P12.jpg')
+values ('P12','Puntera Adulto',24,54,1,'TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Web\Imagen\P12.jpg')
  
 /*Articulos X Materia*/
 insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(1,101)
@@ -158,4 +159,4 @@ insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(12,112)
  where id=2
 
 
- 
+ select * from Articulos

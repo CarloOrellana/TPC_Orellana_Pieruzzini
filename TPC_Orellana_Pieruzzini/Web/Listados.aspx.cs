@@ -37,6 +37,7 @@ namespace Web
             {
                 e.Row.Cells[0].Visible = false;
                 e.Row.Cells[5].Visible = false;
+                e.Row.Cells[6].Visible = false;
             }
             else if(j == 2)
             {

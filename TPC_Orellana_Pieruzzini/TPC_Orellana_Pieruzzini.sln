@@ -9,6 +9,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{8D5F50E5-1A9C-4AD0-B2F8-A60A3D5F6591}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Imagen", "Imagen", "{86BE7BEF-5884-4A8D-8828-F2B23B10F5BD}"
+	ProjectSection(SolutionItems) = preProject
+		Imagen\P10.jpg = Imagen\P10.jpg
+		Imagen\P12.jpg = Imagen\P12.jpg
+		Imagen\P12.png = Imagen\P12.png
+		Imagen\P8.jpg = Imagen\P8.jpg
+		Imagen\T1.jpg = Imagen\T1.jpg
+		Imagen\T11.jpg = Imagen\T11.jpg
+		Imagen\T2.jpg = Imagen\T2.jpg
+		Imagen\T4.jpg = Imagen\T4.jpg
+		Imagen\T5.jpg = Imagen\T5.jpg
+		Imagen\T6.jpg = Imagen\T6.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
