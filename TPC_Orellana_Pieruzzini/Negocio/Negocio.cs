@@ -24,17 +24,16 @@ namespace Negocios
                 while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
-                   
-                        aux.Id = datos.Lector.GetInt32(0);
-                        aux.Codigo = datos.Lector.GetString(1);
-                        aux.Descripcion = datos.Lector.GetString(2);
-                        aux.Stock = (int)datos.Lector.GetInt64(3);
-                        aux.Precio = datos.Lector.GetDecimal(4);
+                    aux.Id = datos.Lector.GetInt32(0);
+                    aux.Codigo = datos.Lector.GetString(1);
+                    aux.Descripcion = datos.Lector.GetString(2);
+                    aux.Stock = (int)datos.Lector.GetInt64(3);
+                    aux.Precio = datos.Lector.GetDecimal(4);
+                    // aux.UrlImagen = NewMethod(datos);
+                    //aux.UrlImagen = (string)datos.Lector["Imagen"];
+                    aux.Estado = (bool)datos.Lector["Estado"];
 
-                        // aux.UrlImagen = NewMethod(datos);
-                        aux.UrlImagen = (string)datos.Lector["Imagen"];
-                        
-                        lista.Add(aux);
+                    lista.Add(aux);
                 }
             }
             catch (Exception ex)
