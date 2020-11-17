@@ -72,7 +72,7 @@ namespace Negocios
             return lista;
 
         }
-      //prueba//
+    
         public List<Persona> ListarClientes()
         {
             List<Persona> lista = new List<Persona>();

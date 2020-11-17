@@ -15,34 +15,35 @@ create table Articulos
 go
 create table MateriaPrima
 (
- id int identity(101,1) primary key,
+ id int identity(1,1) primary key,
  Descripcion char (50)not  null,
  Stock bigint not null check(Stock>=0)
 )
 go
 create table ArticuloXMateria
 (
-IdAxM int identity(1001,1) primary key,
+ IdAxM int identity(1,1) primary key,
  IdArticulo int not null foreign key references Articulos,
- IdMateriaPrima int not null foreign key references MateriaPrima
- )
-  go
- create table Rol
+ IdMateriaPrima int not null foreign key references MateriaPrima,
+ CantidadMinima int not null check(CantidadMinima>=1 )
+)
+go
+create table Rol
 (
  Id int identity(1,1) primary key,
  Descripcion char (50)not  null,
  Estado bit not null
- )
- go
- create table FormaPago
- (
+)
+go
+create table FormaPago
+(
  Id int identity(1001,1) primary key,
  Descripcion char (50)not  null,
  Estado bit not null
  )
- go
- create table DatosPersonales
- (
+go
+create table DatosPersonales
+(
  DNI int not null primary key,
  Nombre char(50) not null,
  Apellido char(50) not null,
@@ -51,7 +52,7 @@ IdAxM int identity(1001,1) primary key,
  Mail varchar (140) not null,
  Cuil bigint not null,
  Estado bit not null
- )
+)
 go
 create table Usuario
 (
@@ -62,13 +63,13 @@ create table Usuario
 )
 go
 create table Tarjetas
- (
+(
  Id int identity (1,1) primary key,
  NumeroTarjeta bigint not null,
  MesVencimiento int not null,
  AnioVencimiento int not null,
  IdUsuario int foreign key references Usuario(Id)
- )
+)
 go
 create table Ventas
 (
@@ -91,20 +92,6 @@ Precio money not null
 go
 
 --/////DATOS///////--
-
-/*Materia Prima*/
-insert into MateriaPrima(Descripcion,Stock) values('T1',0)
-insert into MateriaPrima(Descripcion,Stock) values('T2',0)
-insert into MateriaPrima(Descripcion,Stock) values('P3',103)
-insert into MateriaPrima(Descripcion,Stock) values('T4',82)
-insert into MateriaPrima(Descripcion,Stock) values('T5',41)
-insert into MateriaPrima(Descripcion,Stock) values('T6',0)
-insert into MateriaPrima(Descripcion,Stock) values('T7',0)
-insert into MateriaPrima(Descripcion,Stock) values('P8',7)
-insert into MateriaPrima(Descripcion,Stock) values('P9',0)
-insert into MateriaPrima(Descripcion,Stock) values('P10',91)
-insert into MateriaPrima(Descripcion,Stock) values('T11',153)
-insert into MateriaPrima(Descripcion,Stock) values('P12',54)
 
 /*Articulos*/
 insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Imagen)
@@ -131,20 +118,39 @@ insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Ima
 values ('T11','Taco Adulto',52,54,1,'C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\T11.jpg')
 insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Imagen)
 values ('P12','Puntera Adulto',24,54,1,'C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\P12.jpg')
+insert into Articulos(CodigoArticulo,DescripcionArticulo,Stock,Precio,Estado,Imagen)
+values ('n22','Puntera Adulto',50,54,1,'C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Imagen\P12.jpg')
  
+/*Materia Prima*/
+insert into MateriaPrima(Descripcion,Stock) values('T1',0)
+insert into MateriaPrima(Descripcion,Stock) values('T2',0)
+insert into MateriaPrima(Descripcion,Stock) values('P3',103)
+insert into MateriaPrima(Descripcion,Stock) values('T4',82)
+insert into MateriaPrima(Descripcion,Stock) values('T5',41)
+insert into MateriaPrima(Descripcion,Stock) values('T6',0)
+insert into MateriaPrima(Descripcion,Stock) values('T7',0)
+insert into MateriaPrima(Descripcion,Stock) values('P8',7)
+insert into MateriaPrima(Descripcion,Stock) values('P9',0)
+insert into MateriaPrima(Descripcion,Stock) values('P10',91)
+insert into MateriaPrima(Descripcion,Stock) values('T11',153)
+insert into MateriaPrima(Descripcion,Stock) values('P12',54)
+insert into MateriaPrima(Descripcion,Stock) values('n22',500) 
+
+
 /*Articulos X Materia*/
-insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(1,101)
-insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(2,102)
-insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(3,103)
-insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(4,104)
-insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(5,105)
-insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(6,106)
-insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(7,107)
-insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(8,108)
-insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(9,109)
-insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(10,110)
-insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(11,111)
-insert into ArticuloXMateria(IdArticulo,IdMateriaPrima)values(12,112)
+insert into ArticuloXMateria(IdArticulo,IdMateriaPrima,CantidadMinima)values(1,1,1)
+insert into ArticuloXMateria(IdArticulo,IdMateriaPrima,CantidadMinima)values(2,2,1)
+insert into ArticuloXMateria(IdArticulo,IdMateriaPrima,CantidadMinima)values(3,3,1)
+insert into ArticuloXMateria(IdArticulo,IdMateriaPrima,CantidadMinima)values(4,4,1)
+insert into ArticuloXMateria(IdArticulo,IdMateriaPrima,CantidadMinima)values(5,5,1)
+insert into ArticuloXMateria(IdArticulo,IdMateriaPrima,CantidadMinima)values(6,6,1)
+insert into ArticuloXMateria(IdArticulo,IdMateriaPrima,CantidadMinima)values(7,7,1)
+insert into ArticuloXMateria(IdArticulo,IdMateriaPrima,CantidadMinima)values(8,8,1)
+insert into ArticuloXMateria(IdArticulo,IdMateriaPrima,CantidadMinima)values(9,9,1)
+insert into ArticuloXMateria(IdArticulo,IdMateriaPrima,CantidadMinima)values(10,10,1)
+insert into ArticuloXMateria(IdArticulo,IdMateriaPrima,CantidadMinima)values(11,11,1)
+insert into ArticuloXMateria(IdArticulo,IdMateriaPrima,CantidadMinima)values(12,12,1)
+insert into ArticuloXMateria(IdArticulo,IdMateriaPrima,CantidadMinima)values(13,13,2)
 
  /* FormaPago */
 insert into FormaPago (Descripcion,Estado) values ('Debito',1)
@@ -165,7 +171,6 @@ insert into DatosPersonales(DNI,Nombre,Apellido,Direccion,Telefono,Mail,Cuil,Est
 values(22222222,'Carlos','Orellana','Py 22','66666666','carlitos_2355@hotmail.com',20222222224,1)
 insert into DatosPersonales(DNI,Nombre,Apellido,Direccion,Telefono,Mail,Cuil,Estado)
 values(33333333,'Fernando','Brandan','Entre Rios 1','77777777','latinlover@demaseta.ar',2077777777,0)
-
 insert into DatosPersonales(DNI,Nombre,Apellido,Direccion,Telefono,Mail,Cuil,Estado)
 values(44,'Fernando','Brandan','Entre Rios 1','77777777','latinlover@demaseta.ar',2077777777,1)
 insert into DatosPersonales(DNI,Nombre,Apellido,Direccion,Telefono,Mail,Cuil,Estado)
@@ -177,65 +182,91 @@ values(66,'Fernando','Brandan','Entre Rios 1','77777777','latinlover@demaseta.ar
 insert into Usuario(Contrasenia,IdRol,DniDP)values('Admin',1,11111111)
 insert into Usuario(Contrasenia,IdRol,DniDP)values('Cliente',2,22222222)
 insert into Usuario(Contrasenia,IdRol,DniDP)values('Operario',3,33333333)
-
 insert into Usuario(Contrasenia,IdRol,DniDP)values('Operario',2,44)
 insert into Usuario(Contrasenia,IdRol,DniDP)values('Admin',2,55)
+
+
+
 
 -------------------------------------
 ------------/ Vista  /---------------
 -------------------------------------
-
-create view vw_ReporteStock as ---reporte stock simple---
+go
+create view  vw_ReporteStock1 as ---reporte stock simple
 select A.CodigoArticulo,A.DescripcionArticulo,A.Stock as StockVta, MP.Stock as StockMateriaPrima
 from Articulos as A
-inner join MateriaPrima as MP on A.CodigoArticulo=MP.Descripcion
+inner join MateriaPrima as MP on A.Id=MP.Id
 
---/ Ejecuto /--
-select * from vw_ReporteStock
+go
+create view vw_ClientesActivos1 as --reporte de CL activos
+select DP.DNI,DP.Nombre,DP.Apellido,DP.Direccion,DP.Telefono,DP.Mail,DP.Cuil from DatosPersonales as DP
+inner join Usuario as U on U.DniDP=DP.DNI
+inner join ROl as R on R.Id=U.IdRol
+where R.Id=2 and DP.Estado=1
+
+
 
 -------------------------------------
 -------/ Stored Procedure  /---------
 -------------------------------------
-create procedure sp_StockMPyArt---descuenta stock MP(procesada) y aumente en art, validad error
-(
-	@Codigo char(10),
+go
+create procedure sp_StockMPyArt ---descuenta stock MP(procesada) y aumente en art, validad error--
+ (
+	@Codigo int,
 	@Cantidad bigint	
-)
-as
-begin
+ )
+  as
+   begin
 	begin try
 		begin transaction
 		
-		update Articulos set Stock=Stock+@Cantidad where CodigoArticulo like @Codigo
-		update MateriaPrima set Stock=Stock-@Cantidad where Descripcion like @Codigo
+	   update MateriaPrima set Stock=Stock-(AM.CantidadMinima*@Cantidad)from ArticuloXMateria as AM	
+	   where id=@Codigo and IdAxM=@Codigo;
+	   
+	   update Articulos set Stock=Stock+@Cantidad where id = @Codigo;
+
 		commit transaction
 	end try
-	begin catch
+   begin catch
 		if @@TRANCOUNT >0 begin
 			rollback transaction
 		end
 		raiserror ('Error',16,1)
 	end catch
-end
-
---/ Ejecuto /--
-execute sp_StockMPyArt 't1',10
+  end
 
 
-create procedure sp_BuscaStockMinimo---Busca en art(activos) y MP stock minimo indicado
+
+
+go
+create procedure sp_BuscaStockMinimo  ---Busca en art(activos) y MP stock minimo indicado
 (
-	@Cantidad bigint	
+	@Cant bigint	
 )
 as
 begin
-		select A.CodigoArticulo,A.DescripcionArticulo,A.Stock as StockVta, MP.Stock as StockMateriaPrima
+		select A.id,A.CodigoArticulo,A.DescripcionArticulo,A.Stock as StockVta, MP.Stock as StockMateriaPrima
 		from Articulos as A
-		Inner join MateriaPrima as MP on MP.Descripcion like A.CodigoArticulo
-		where A.Estado=1 and A.Stock<=@Cantidad and MP.Stock<=@Cantidad
+		Inner join MateriaPrima as MP on MP.id = A.id
+		where A.Estado=1 and A.Stock<=@Cant and MP.Stock<=@Cant;
 end 
+go
 
---/ Ejecuto /--
+
+--/ Ejecuto Vista/--
+select * from vw_ReporteStock1
+
+select * from vw_ClientesActivos1
+
+
+--/ Ejecuto SP/--
+
+execute sp_StockMPyArt 13,10  
+
+
 execute sp_BuscaStockMinimo 30
+
+
 
 
 
