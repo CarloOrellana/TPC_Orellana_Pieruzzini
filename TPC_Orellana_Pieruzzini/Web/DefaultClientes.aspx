@@ -16,6 +16,7 @@
                                      {%>
                                        <p style="font-size: 2rem; color:red"><b>SIN STOCK</b></p>
                                     <% }%>
+                                
                                 <a href="Detalle.aspx?Id=<% =item.Id.ToString() %>" class="btn btn-outline-primary" style="font-size: x-large; height: 50px; width: 225px; text-align: center;">Detalles</a>
                             </div>
                          </div>

@@ -11,6 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Imagen", "Imagen", "{86BE7BEF-5884-4A8D-8828-F2B23B10F5BD}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		Imagen\P10.jpg = Imagen\P10.jpg
 		Imagen\P12.jpg = Imagen\P12.jpg
 		Imagen\P12.png = Imagen\P12.png

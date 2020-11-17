@@ -167,11 +167,10 @@ insert into DatosPersonales(DNI,Nombre,Apellido,Direccion,Telefono,Mail,Cuil,Est
 values(33333333,'Fernando','Brandan','Entre Rios 1','77777777','latinlover@demaseta.ar',2077777777,0)
 
 insert into DatosPersonales(DNI,Nombre,Apellido,Direccion,Telefono,Mail,Cuil,Estado)
-values(44,'Fernando','Brandan','Entre Rios 1','77777777','latinlover@demaseta.ar',2077777777,1)
+values(44,'Fernando','Brandan','Entre Rios 1','77777777','latinlover@demaseta.ar',2077777777,0)
 insert into DatosPersonales(DNI,Nombre,Apellido,Direccion,Telefono,Mail,Cuil,Estado)
 values(55,'Fernando','Brandan','Entre Rios 1','77777777','latinlover@demaseta.ar',2077777777,1)
-insert into DatosPersonales(DNI,Nombre,Apellido,Direccion,Telefono,Mail,Cuil,Estado)
-values(66,'Fernando','Brandan','Entre Rios 1','77777777','latinlover@demaseta.ar',2077777777,0)
+
 
 /*Usuario*/
 insert into Usuario(Contrasenia,IdRol,DniDP)values('Admin',1,11111111)

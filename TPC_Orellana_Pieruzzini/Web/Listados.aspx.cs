@@ -27,6 +27,14 @@ namespace Web
             dgvListas.DataBind();
         }
 
+        public void btnClientes_Click(object sender, EventArgs e)
+        {
+            j = 3;
+            Negocio negocio = new Negocio();
+            dgvListas.DataSource = negocio.ListarClientes();
+            dgvListas.DataBind();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -43,7 +51,10 @@ namespace Web
             {
                 e.Row.Cells[0].Visible = false;
             }
-
+            else if(j==3)
+            {
+                e.Row.Cells[6].Visible = false;
+            }
 
         }
 

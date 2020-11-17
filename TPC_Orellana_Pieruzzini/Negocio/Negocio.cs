@@ -72,5 +72,38 @@ namespace Negocios
             return lista;
 
         }
+      //prueba//
+        public List<Persona> ListarClientes()
+        {
+            List<Persona> lista = new List<Persona>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.Setear("select * from vw_ClientesActivos1");
+                datos.Consultar();
+
+                while (datos.Lector.Read())
+                {
+                    Persona aux = new Persona();
+                    aux.DNI = datos.Lector.GetInt32(0);
+                    aux.Nombre = datos.Lector.GetString(1);
+                    aux.Apellido = datos.Lector.GetString(2);
+                    aux.Direccion = datos.Lector.GetString(3);
+                    aux.Telefono = datos.Lector.GetString(4);
+                    aux.Mail = datos.Lector.GetString(5);
+                   
+
+                    lista.Add(aux);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            datos.Cerrar();
+            return lista;
+
+        }
     }
 }
