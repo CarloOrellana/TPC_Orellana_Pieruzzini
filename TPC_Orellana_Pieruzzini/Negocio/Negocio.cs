@@ -38,13 +38,13 @@ namespace Negocios
             }
             catch (Exception ex)
             {
-               throw ex;
+                throw ex;
             }
             datos.Cerrar();
             return lista;
         }
 
-       public List<MateriaPrima> ListarMateria()
+        public List<MateriaPrima> ListarMateria()
         {
             List<MateriaPrima> lista = new List<MateriaPrima>();
             AccesoDatos datos = new AccesoDatos();
@@ -53,18 +53,18 @@ namespace Negocios
             {
                 datos.Setear("select * from MateriaPrima");
                 datos.Consultar();
-            
+
                 while (datos.Lector.Read())
                 {
-                MateriaPrima aux = new MateriaPrima();
-                aux.Id = datos.Lector.GetInt32(0);
-                aux.Descripcion = datos.Lector.GetString(1);
-                aux.Stock =(int)datos.Lector.GetInt64(2);
+                    MateriaPrima aux = new MateriaPrima();
+                    aux.Id = datos.Lector.GetInt32(0);
+                    aux.Descripcion = datos.Lector.GetString(1);
+                    aux.Stock = (int)datos.Lector.GetInt64(2);
 
-                lista.Add(aux);
+                    lista.Add(aux);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -72,7 +72,7 @@ namespace Negocios
             return lista;
 
         }
-    
+
         public List<Persona> ListarClientes()
         {
             List<Persona> lista = new List<Persona>();
@@ -92,7 +92,7 @@ namespace Negocios
                     aux.Direccion = datos.Lector.GetString(3);
                     aux.Telefono = datos.Lector.GetString(4);
                     aux.Mail = datos.Lector.GetString(5);
-                   
+
 
                     lista.Add(aux);
                 }
@@ -105,5 +105,7 @@ namespace Negocios
             return lista;
 
         }
+
+        
     }
 }
