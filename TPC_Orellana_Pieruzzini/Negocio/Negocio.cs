@@ -106,6 +106,27 @@ namespace Negocios
 
         }
 
-        
+        public Boolean Logearse(int usuario, string contraseña)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.Setear("select DniDP, Contrasenia from Usuario where DniDP = " + "'" + usuario + "'" + "AND Contrasenia = " + "'" + contraseña + "'");
+                datos.Consultar();
+
+                if(datos.Lector.Read())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
+        }
     }
 }

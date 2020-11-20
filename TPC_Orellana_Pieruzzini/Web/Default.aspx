@@ -38,7 +38,7 @@
             <h1 style="text-align: center; color: white">Login</h1>
 
             <div class="input-row" style="text-align: center; margin: 1em 0; margin-left: 60px; padding-bottom: 10px;">
-                <asp:TextBox ID="txtUsuario" ClientIDMode="Static" CssClass="form-control" placeholder="Usuario" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtUsuario" ClientIDMode="Static" CssClass="form-control" placeholder="N° Usuario" runat="server"></asp:TextBox>
                 <div class="invalid-feedback">
                     Ingrese el usuario / Usuario Incorrecto !!
                 </div>
