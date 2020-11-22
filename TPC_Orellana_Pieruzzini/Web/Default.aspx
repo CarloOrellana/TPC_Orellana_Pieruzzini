@@ -45,7 +45,7 @@
             </div>
 
             <div class="input-row" style="text-align: center; margin: 1em 0; margin-left:60px; padding-bottom:10px;">
-               <asp:TextBox ID="txtContraseña" ClientIDMode="Static"  CssClass="form-control" placeholder="Contraseña" runat="server"></asp:TextBox>
+               <asp:TextBox ID="txtContraseña" ClientIDMode="Static" type="password"  CssClass="form-control" placeholder="Contraseña" runat="server"></asp:TextBox>
                 <div class="invalid-feedback">
                     Ingrese la contraseña / Contraseña Incorrecta !!
                 </div>

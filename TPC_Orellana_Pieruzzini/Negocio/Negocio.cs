@@ -128,5 +128,30 @@ namespace Negocios
                 datos.Cerrar();
             }
         }
+
+        public int Rol(int usuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            int rol;
+
+            try
+            {
+                datos.Agregar("@id",usuario);
+                datos.Setear("select r.Id from Rol as r inner join Usuario as u on u.IdRol = r.Id where  u.DniDP= @id;");
+                datos.Consultar();
+                
+                if (datos.Lector.Read())
+                {
+                  rol = datos.Lector.GetInt32(0);
+                  return rol;
+                }
+                else { return 0; }
+                
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
+        }
     }
 }

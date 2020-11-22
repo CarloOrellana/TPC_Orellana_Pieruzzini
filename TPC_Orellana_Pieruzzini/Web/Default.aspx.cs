@@ -22,10 +22,20 @@ namespace Web
                 return;
 
             Negocio negocio = new Negocio();
+
             int usuario = Convert.ToInt32(txtUsuario.Text);
             if(negocio.Logearse(usuario, txtContraseña.Text))
             {
-                Response.Redirect("DefaultAdministrador.aspx");
+                if(negocio.Rol(usuario) == 1)
+                {
+                    Response.Redirect("DefaultAdministrador.aspx");
+                }
+                else if(negocio.Rol(usuario) == 2)
+                {
+                    Response.Redirect("DefaultClientes.aspx");
+                }
+                
+                
             }
             else
             {

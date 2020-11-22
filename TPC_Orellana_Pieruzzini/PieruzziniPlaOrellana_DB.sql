@@ -1,5 +1,6 @@
 create database PieruzziniPlaOrellana_DB
 go
+use master
 use PieruzziniPlaOrellana_DB
 go
 create table Articulos
@@ -265,6 +266,8 @@ execute sp_StockMPyArt 13,10
 
 
 execute sp_BuscaStockMinimo 30
+
+select  DniDP, Contrasenia from Usuario
 
 
 
