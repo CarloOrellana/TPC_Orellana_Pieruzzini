@@ -18,5 +18,10 @@ namespace Web
         {
             Response.Redirect("Listados.aspx");
         }
+
+        public void btnArticulos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Articulos.aspx");
+        }
     }
 }

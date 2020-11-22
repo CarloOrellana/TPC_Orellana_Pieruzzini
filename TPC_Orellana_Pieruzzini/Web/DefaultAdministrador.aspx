@@ -8,15 +8,15 @@
         <h1 style="color: white; text-align: center; padding-top: 10px;">Opciones De Administrador</h1>
 
         <div class="input-row" style="text-align: center; margin: 1em 0; overflow: hidden; ; padding-top: 30px;">
-            <asp:Button ID="Button1" runat="server" Text="Agregar Articulo" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:600px; height:50px;"/>
+            <asp:Button ID="Button1" runat="server" Text="Articulos"  OnClick="btnArticulos_Click" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:600px; height:50px;"/>
         </div>
 
         <div class="input-row" style="text-align: center; margin: 1em 0; overflow: hidden; ; padding-top: 30px;">
-            <asp:Button ID="Button2" runat="server" Text="Agregar Materia Prima" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:600px; height:50px;"/>
+            <asp:Button ID="Button2" runat="server" Text="Materia Prima" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:600px; height:50px;"/>
         </div>
 
         <div class="input-row" style="text-align: center; margin: 1em 0; overflow: hidden; ; padding-top: 30px;">
-            <asp:Button ID="Button3" runat="server" Text="Listado" OnClick="btnListado_Click" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:600px; height:50px;"/>
+            <asp:Button ID="Button3" runat="server" Text="Listados" OnClick="btnListado_Click" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:600px; height:50px;"/>
         </div>
     </div>
 

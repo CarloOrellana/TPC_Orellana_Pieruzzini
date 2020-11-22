@@ -153,5 +153,21 @@ namespace Negocios
                 datos.Cerrar();
             }
         }
+
+        public void AgregarArticulo(Articulo nuevoArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+         
+                datos.Setear("INSERT INTO Articulos (CodigoArticulo, Descripcionarticulo ,Stock, Precio, Estado) VALUES (@CODIGO, @DESCRIPCION, @STOCK, @PRECIO, @ESTADO)");
+                datos.Agregar("@CODIGO", nuevoArticulo.Codigo);
+                datos.Agregar("@DESCRIPCION", nuevoArticulo.Descripcion);
+                datos.Agregar("@STOCK", nuevoArticulo.Stock);
+                datos.Agregar("@PRECIO", nuevoArticulo.Precio);
+                datos.Agregar("@ESTADO", nuevoArticulo.Estado);
+
+                datos.Query();
+            
+        }
+
     }
 }

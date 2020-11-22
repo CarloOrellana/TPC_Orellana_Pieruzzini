@@ -162,3 +162,7 @@ C:\Users\carlos\Desktop\git\TPCuatrimestral\TPC_Orellana_Pieruzzini\Web\bin\rosl
 C:\Users\carlos\Desktop\git\TPCuatrimestral\TPC_Orellana_Pieruzzini\Web\bin\roslyn\System.Memory.dll
 C:\Users\carlos\Desktop\git\TPCuatrimestral\TPC_Orellana_Pieruzzini\Web\bin\roslyn\System.Numerics.Vectors.dll
 C:\Users\carlos\Desktop\git\TPCuatrimestral\TPC_Orellana_Pieruzzini\Web\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Web\bin\roslyn\System.Buffers.dll
+C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Web\bin\roslyn\System.Memory.dll
+C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Web\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Web\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
