@@ -166,8 +166,40 @@ namespace Negocios
                 datos.Agregar("@ESTADO", nuevoArticulo.Estado);
 
                 datos.Query();
+            datos.Cerrar();
             
         }
 
+        public void ModificarArticulo(Articulo nuevoArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            datos.Setear("update Articulos set CodigoArticulo=@CODIGO, Descripcionarticulo=@DESCRIPCION ,Stock=@STOCK, Precio=@PRECIO where CodigoArticulo = @CODIGO");
+            datos.Agregar("@CODIGO", nuevoArticulo.Codigo);
+            datos.Agregar("@DESCRIPCION", nuevoArticulo.Descripcion);
+            datos.Agregar("@STOCK", nuevoArticulo.Stock);
+            datos.Agregar("@PRECIO", nuevoArticulo.Precio);
+           
+            datos.Query();
+            datos.Cerrar();
+        }
+
+        public void BajaArticulo(Articulo nuevoArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            datos.Setear("update Articulos set CodigoArticulo =@CODIGO, Estado =0 where CodigoArticulo =@CODIGO");
+            datos.Agregar("@CODIGO", nuevoArticulo.Codigo);
+            datos.Agregar("@ESTADO", nuevoArticulo.Estado);
+            datos.Query();
+            datos.Cerrar();
+        }
+        public string getCodigoArticulo(Articulo nuevoArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            datos.Setear("select CodigoArticulo from Articulos where CodigoArticulo= '" + nuevoArticulo + "'");
+            datos.Consultar();
+            datos.Lector.Read();
+            return datos.Lector.GetString(1);
+            datos.Cerrar();
+        }
     }
 }

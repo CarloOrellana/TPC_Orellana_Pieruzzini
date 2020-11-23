@@ -7,19 +7,19 @@
 
         <div class="row">
 
-         <div class="col-md-3" style="text-align: center; margin: 1em 0; overflow: hidden; ; padding-top: 30px;">
+         <div class="col-md-3" style="text-align: center; margin: 1em 0; overflow: hidden;  padding-top: 30px;">
              <asp:Button ID="btnClientes"  runat="server" Text="Clientes" OnClick="btnClientes_Click" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:200px; height:50px;"/>
         </div>
 
-        <div class="col-md-3" style="text-align: center; margin: 1em 0; overflow: hidden; ; padding-top: 30px;">
+        <div class="col-md-3" style="text-align: center; margin: 1em 0; overflow: hidden; padding-top: 30px;">
             <asp:Button ID="btnArticulos" runat="server" Text="Articulos" OnClick="btnArticulos_Click"  CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:200px; height:50px;"/>
         </div>
 
-        <div class="col-md-3" style="text-align: center; margin: 1em 0; overflow: hidden; ; padding-top: 30px;">
+        <div class="col-md-3" style="text-align: center; margin: 1em 0; overflow: hidden;  padding-top: 30px;">
            <asp:Button  runat="server" Text="Materiales" OnClick="btnMateriales_Click" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:200px; height:50px;"/>
         </div>
         
-        <div class="col-md-3" style="text-align: center; margin: 1em 0; overflow: hidden; ; padding-top: 30px;">
+        <div class="col-md-3" style="text-align: center; margin: 1em 0; overflow: hidden;  padding-top: 30px;">
             <asp:Button  runat="server" Text="Ventas" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:200px; height:50px;"/>
         </div> 
         </div>

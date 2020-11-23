@@ -31,7 +31,9 @@ namespace Web
 
                 newArt.AgregarArticulo(nuevoArticulo);
 
-            
+            Response.Write("<script LANGUAGE='JavaScript' >alert('Se cargo correctamente el Articulo')</script>");
+
+
         }
     }
 }

@@ -22,6 +22,10 @@ namespace Web
 
         }
 
+        public void btnBaja_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("BajaArticulo.aspx");
+        }
 
     }
 }
