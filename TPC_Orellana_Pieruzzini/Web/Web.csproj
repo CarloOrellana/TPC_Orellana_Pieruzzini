@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AgregarArticulo.aspx" />
+    <Content Include="AgregarMateriales.aspx" />
     <Content Include="Articulos.aspx" />
     <Content Include="BajaArticulo.aspx" />
     <Content Include="Carrito.aspx" />
@@ -128,6 +129,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Listados.aspx" />
+    <Content Include="Materiales.aspx" />
     <Content Include="ModificarArticulo.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="PerfilAdministrador.aspx" />
@@ -279,6 +281,13 @@
     <Compile Include="AgregarArticulo.aspx.designer.cs">
       <DependentUpon>AgregarArticulo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AgregarMateriales.aspx.cs">
+      <DependentUpon>AgregarMateriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarMateriales.aspx.designer.cs">
+      <DependentUpon>AgregarMateriales.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Articulos.aspx.cs">
@@ -336,6 +345,13 @@
     </Compile>
     <Compile Include="Listados.aspx.designer.cs">
       <DependentUpon>Listados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Materiales.aspx.cs">
+      <DependentUpon>Materiales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Materiales.aspx.designer.cs">
+      <DependentUpon>Materiales.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModificarArticulo.aspx.cs">
       <DependentUpon>ModificarArticulo.aspx</DependentUpon>

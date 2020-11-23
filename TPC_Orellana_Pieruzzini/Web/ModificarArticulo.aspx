@@ -24,7 +24,7 @@
       
 
          <div class="col-md-3" style="text-align: center; margin: 1em 0; overflow: hidden;  padding-top: 30px;">
-            <asp:Button ID="btnModificar"  runat="server" Text="Modificar"  OnClick="btnModificar_Click" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:200px; height:50px;"/>
+            <asp:Button ID="btnModificar1"  runat="server" Text="Modificar"  OnClick="btnModificar_Click" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:200px; height:50px;"/>
           </div>
     </div>
 

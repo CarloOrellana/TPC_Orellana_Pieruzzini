@@ -201,5 +201,20 @@ namespace Negocios
             return datos.Lector.GetString(1);
             datos.Cerrar();
         }
+
+        public void AgregarMaterial(MateriaPrima nuevoMaterial)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            datos.Setear("INSERT INTO MateriaPrima (Descripcion,Stock) VALUES (@DESCRIPCION, @STOCK)");
+   
+            datos.Agregar("@DESCRIPCION", nuevoMaterial.Descripcion);
+            datos.Agregar("@STOCK", nuevoMaterial.Stock);
+           
+
+            datos.Query();
+            datos.Cerrar();
+
+        }
     }
 }

@@ -12,7 +12,7 @@
         </div>
 
         <div class="input-row" style="text-align: center; margin: 1em 0; overflow: hidden;  padding-top: 30px;">
-            <asp:Button ID="Button2" runat="server" Text="Materia Prima" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:600px; height:50px;"/>
+            <asp:Button ID="Button2" runat="server" Text="Materia Prima" OnClick="btnMateriales_Click" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:600px; height:50px;"/>
         </div>
 
         <div class="input-row" style="text-align: center; margin: 1em 0; overflow: hidden;  padding-top: 30px;">

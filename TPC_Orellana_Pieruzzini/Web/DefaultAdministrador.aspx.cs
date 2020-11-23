@@ -23,5 +23,10 @@ namespace Web
         {
             Response.Redirect("Articulos.aspx");
         }
+                
+        protected void btnMateriales_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Materiales.aspx");
+        }
     }
 }
