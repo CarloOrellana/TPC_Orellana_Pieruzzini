@@ -10,6 +10,11 @@
                <div class="col-md-3" style="text-align: center; margin: 1em 0; overflow: hidden; padding-top: 30px;">
                 <asp:Button  runat="server" Text="Alta Materia Prima" OnClick="btnAltaMP_Click" CssClass="btn btn-outline-secondary" Style="color: white; border-color: white; width: 200px; height: 50px;" />
             </div>
+
+                <div class="col-md-3" style="text-align: center; margin: 1em 0; overflow: hidden; padding-top: 30px;">
+                <asp:Button  runat="server" Text="Modificar Materia Prima" OnClick="btnModificaMP_Click" CssClass="btn btn-outline-secondary" Style="color: white; border-color: white; width: 200px; height: 50px;" />
+            </div>
+
         </div>
     </div>
 </asp:Content>

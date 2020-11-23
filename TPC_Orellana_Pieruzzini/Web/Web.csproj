@@ -131,6 +131,7 @@
     <Content Include="Listados.aspx" />
     <Content Include="Materiales.aspx" />
     <Content Include="ModificarArticulo.aspx" />
+    <Content Include="ModificarMateriales.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="PerfilAdministrador.aspx" />
     <Content Include="RecuperarContraseña.aspx" />
@@ -359,6 +360,13 @@
     </Compile>
     <Compile Include="ModificarArticulo.aspx.designer.cs">
       <DependentUpon>ModificarArticulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarMateriales.aspx.cs">
+      <DependentUpon>ModificarMateriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarMateriales.aspx.designer.cs">
+      <DependentUpon>ModificarMateriales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>

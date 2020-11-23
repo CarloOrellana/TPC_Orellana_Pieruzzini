@@ -216,5 +216,19 @@ namespace Negocios
             datos.Cerrar();
 
         }
+
+
+        public void ModificarMaterial(MateriaPrima nuevoMaterial)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            datos.Setear("update MateriaPrima set  Descripcion=@DESCRIPCION ,Stock=@STOCK  where Descripcion=@DESCRIPCION");
+            
+            datos.Agregar("@DESCRIPCION", nuevoMaterial.Descripcion);
+            datos.Agregar("@STOCK", nuevoMaterial.Stock);
+          
+
+            datos.Query();
+            datos.Cerrar();
+        }
     }
 }

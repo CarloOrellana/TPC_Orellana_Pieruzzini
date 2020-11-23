@@ -18,5 +18,10 @@ namespace Web
         {
             Response.Redirect("AgregarMateriales.aspx");
         }
+
+        protected void btnModificaMP_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificarMateriales.aspx");
+        }
     }
 }
