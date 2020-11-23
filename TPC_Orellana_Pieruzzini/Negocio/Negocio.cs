@@ -18,7 +18,7 @@ namespace Negocios
 
             try
             {
-                datos.Setear("select * from Articulos");
+                datos.Setear("select * from Articulos where Estado=1");
                 datos.Consultar();
 
                 while (datos.Lector.Read())

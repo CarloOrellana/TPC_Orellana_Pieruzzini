@@ -30,9 +30,6 @@ namespace Web
             Negocio newArt = new Negocio();
 
             nuevoArticulo.Codigo = txtBusqueda.Text;
-          
-        
-
             newArt.BajaArticulo(nuevoArticulo);
 
             Response.Write("<script LANGUAGE='JavaScript' >alert('Se dio de baja correctamente el Articulo')</script>");
