@@ -12,12 +12,6 @@ namespace Web
 {
     public partial class BajaArticulo : System.Web.UI.Page
     {
-        private List<Articulos> Busqueda;
-
-        public List<Articulos> Lista { get; private set; }
-
-        public object Y { get; private set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             

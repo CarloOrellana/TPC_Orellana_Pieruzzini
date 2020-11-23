@@ -27,5 +27,9 @@ namespace Web
             Response.Redirect("BajaArticulo.aspx");
         }
 
+        public void btnModifcar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificarArticulo.aspx");
+        }
     }
 }
