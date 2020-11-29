@@ -230,5 +230,44 @@ namespace Negocios
             datos.Query();
             datos.Cerrar();
         }
+
+        public void RegistrarUsuario(Persona persona, Usuario usuario, Rol rol)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            datos.Setear("INSERT INTO ");
+
+            datos.Agregar("@Apellido", persona.Apellido);
+            datos.Agregar("@Nombre", persona.Nombre);
+            datos.Agregar("@DNI",persona.DNI);
+            datos.Agregar("@Direccion",persona.Direccion);
+            datos.Agregar("@Telefono",persona.Telefono);
+            datos.Agregar("@Mail",persona.Mail);
+            datos.Agregar("@Cuil",persona.Cuil);
+            datos.Agregar("Estado",persona.Estado);
+        }
+
+        public bool ComprobarExitenciaUsuario(int NumUsuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            
+            try
+            {
+                datos.Agregar("@NumUsuario", NumUsuario);
+                datos.Setear("select DniDP from Usuario where DniDP = @NumUsuario");
+                datos.Consultar();
+
+                if (datos.Lector.Read())
+                {
+                    return false;
+                }
+                else { return true; }
+
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
+        }
     }
 }

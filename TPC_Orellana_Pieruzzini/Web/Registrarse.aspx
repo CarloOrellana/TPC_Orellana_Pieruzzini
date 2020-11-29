@@ -166,7 +166,7 @@
 
         <div class="row" style="margin-left:250px;">
             <div class="col-md-6" style="padding-left: 40px; padding-top: 10px; padding-bottom: 20px;">
-                <asp:Button ID="btnAceptar" runat="server" OnClientClick="return validar()" Text="Crear Cuenta" />
+                <asp:Button ID="btnAceptar" runat="server" OnClientClick="return validar()" OnClick="btnAceptar_Click" Text="Crear Cuenta" />
             </div>
             <div class="col-md-6" style="padding-left: 40px; padding-top: 10px; padding-bottom: 20px;">
                 <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />

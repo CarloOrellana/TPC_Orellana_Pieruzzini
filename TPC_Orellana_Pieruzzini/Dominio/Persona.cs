@@ -21,5 +21,7 @@ namespace Dominio
         public string Mail { get; set; }
 
         public bool Estado { get; set; }
+
+        public long Cuil { get; set; }
     }
 }
