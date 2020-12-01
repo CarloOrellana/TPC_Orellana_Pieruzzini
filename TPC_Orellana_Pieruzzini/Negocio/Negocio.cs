@@ -231,12 +231,14 @@ namespace Negocios
             datos.Cerrar();
         }
 
-        public void RegistrarUsuario(Persona persona, Usuario usuario, Rol rol)
+        public bool RegistrarPersona(Persona persona)
         {
             AccesoDatos datos = new AccesoDatos();
+            try { 
 
-            datos.Setear("INSERT INTO ");
-
+            //DATOS PERSONALES//
+            datos.Setear("INSERT INTO DatosPersonales(DNI,Nombre,Apellido,Direccion,Telefono,Mail,Cuil,Estado) VALUES(@DNI, @Nombre, @Apellido, @Direccion, @Telefono, @Mail, @Cuil, @Estado  )");
+           
             datos.Agregar("@Apellido", persona.Apellido);
             datos.Agregar("@Nombre", persona.Nombre);
             datos.Agregar("@DNI",persona.DNI);
@@ -244,7 +246,69 @@ namespace Negocios
             datos.Agregar("@Telefono",persona.Telefono);
             datos.Agregar("@Mail",persona.Mail);
             datos.Agregar("@Cuil",persona.Cuil);
-            datos.Agregar("Estado",persona.Estado);
+            datos.Agregar("@Estado",persona.Estado);
+            if(persona.Estado)
+            {
+                datos.Query();
+                return true;
+            }
+            else { return false; }
+            }
+
+            finally { 
+            datos.Cerrar();
+            }
+
+        }
+
+        public bool RegistrarUsuario(Usuario usuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try { 
+            //USUARIOS//
+            datos.Setear("INSERT INTO Usuario(Contrasenia, IdRol ,DniDP) VALUES(@Contraseña,@IDrol ,@NombreUsuario)");
+
+            datos.Agregar("@Contraseña", usuario.Contraseña);
+            datos.Agregar("@IDrol", 2);
+            datos.Agregar("@NombreUsuario", usuario.NombreUsuario);
+                if(usuario.Contraseña != null)
+                {
+                    datos.Query();
+                    return true;
+                }
+                else { return false; }
+            
+            }
+            finally { 
+            datos.Cerrar();
+            }
+        }
+
+        public bool RegistrarRol(Rol rol)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try { 
+            //ROL//
+            datos.Setear("INSERT INTO Rol(Descripcion,Estado) VALUES(@Descripcion,@Estado)");
+
+            datos.Agregar("@Descripcion", rol.NombreRol);
+            datos.Agregar("@Estado", rol.Estado);
+
+                if(rol.Estado)
+                {
+                    datos.Query();
+                    return true;
+                }
+                else { return false; }
+            
+            }
+
+            finally
+            {
+                datos.Cerrar();
+            }
+             
         }
 
         public bool ComprobarExitenciaUsuario(int NumUsuario)

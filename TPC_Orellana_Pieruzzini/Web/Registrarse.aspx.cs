@@ -27,8 +27,6 @@ namespace Web
                 Usuario datosUsu = new Usuario();
                 Rol rol = new Rol();
 
-                datosUsu.Contraseña = txtContraseña.Text;
-                string confirmar = txtConfirmarContraseña.Text;
 
                 datos.Nombre = txtNombre.Text;
                 datos.Apellido = txtApellido.Text;
@@ -39,7 +37,10 @@ namespace Web
                 datos.Cuil = Convert.ToInt64(txtCuil.Text);
                 datos.Estado = true;
 
+                datosUsu.Contraseña = txtContraseña.Text;
+                string confirmar = txtConfirmarContraseña.Text;
                 datosUsu.NombreUsuario = Convert.ToInt32(txtDni.Text);
+
                 rol.NombreRol = "Cliente";
                 rol.Estado = true;
 
@@ -48,8 +49,19 @@ namespace Web
                     Negocio comprobar = new Negocio();
                     if( comprobar.ComprobarExitenciaUsuario(datos.DNI))
                     {
-                        comprobar.RegistrarUsuario(datos, datosUsu, rol);
-                        Response.Write("<script LANGUAGE='JavaScript' >alert('va bien')</script>");
+                        if(comprobar.RegistrarRol(rol))
+                        {
+                            if(comprobar.RegistrarPersona(datos))
+                            {
+                                if(comprobar.RegistrarUsuario(datosUsu))
+                                {
+                                    Response.Write("<script LANGUAGE='JavaScript' >alert('Se Registro Correctamente')</script>");
+                                    Response.Redirect("Default.aspx");
+                                }
+                            }
+                        }
+                        else { Response.Write("<script LANGUAGE='JavaScript' >alert('No se completar el Registro')</script>"); }
+                        
                     }
                     else
                     {
