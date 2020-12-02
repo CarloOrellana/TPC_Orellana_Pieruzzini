@@ -11,7 +11,11 @@ namespace Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            int usuario = (int)Session["Admin"];
+            if(usuario == 0)
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
 
         public void btnListado_Click(object sender, EventArgs e)

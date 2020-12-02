@@ -12,7 +12,8 @@ namespace Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["Admin"] = 0;
+            Session["Cliente"] = 0;
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
@@ -28,10 +29,12 @@ namespace Web
             {
                 if(negocio.Rol(usuario) == 1)
                 {
+                    Session["Admin"] = usuario;
                     Response.Redirect("DefaultAdministrador.aspx");
                 }
                 else if(negocio.Rol(usuario) == 2)
                 {
+                    Session["Cliente"] = usuario;
                     Response.Redirect("DefaultClientes.aspx");
                 }
                 
