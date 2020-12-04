@@ -27,7 +27,7 @@ namespace Web
                 Usuario datosUsu = new Usuario();
                 Rol rol = new Rol();
 
-
+                
                 datos.Nombre = txtNombre.Text;
                 datos.Apellido = txtApellido.Text;
                 datos.DNI = Convert.ToInt32(txtDni.Text);

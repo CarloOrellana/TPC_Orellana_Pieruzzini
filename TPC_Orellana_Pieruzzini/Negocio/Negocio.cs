@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Mail;
+using System.Net;
 using Dominio;
 
 namespace Negocios
@@ -333,5 +335,47 @@ namespace Negocios
                 datos.Cerrar();
             }
         }
+
+        public bool EnviarMail(string mail, int usuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.Agregar("@usuario", usuario);
+                datos.Agregar("@mail", mail);
+                datos.Setear("select  DniDP, Contrasenia, DP.Mail from Usuario inner join DatosPersonales as DP on DP.DNI = DniDP where DniDP = @usuario and DP.Mail = @mail ");
+                datos.Consultar();
+                if(datos.Lector.Read() == true)
+                {
+                    string Contraseña = datos.Lector.GetString(1);
+
+                    MailMessage correo = new MailMessage();
+                    correo.From = new MailAddress("TpCuatrimestral@gmail.com");//va correo desde donde se envia el mail.
+                    correo.To.Add(mail);//Añadis a donde se va a enviar el mail.
+                    correo.Subject = ("Recuperar Contraseña");//Asunto del correo.
+                    correo.Body = "Hola!! Usted solicito recuperar su contraseña: "+ Contraseña;//Mensaje del correo.
+                    correo.Priority = MailPriority.Normal;
+
+                    SmtpClient serverMail = new SmtpClient();
+                    serverMail.Credentials = new NetworkCredential("TpCuatrimestral@gmail.com", "Tpcuatrimestral1234");
+                    serverMail.Host = "smtp.gmail.com";
+                    serverMail.Port = 587;
+                    serverMail.EnableSsl = true;
+
+                    serverMail.Send(correo);
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            finally { datos.Cerrar(); }
+
+            
+
+        }
+
     }
 }
