@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace Web
 {
@@ -11,7 +12,8 @@ namespace Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            dgvCarrito.DataSource = (DataTable)Session["Carrito"];
+            dgvCarrito.DataBind();
         }
     }
 }

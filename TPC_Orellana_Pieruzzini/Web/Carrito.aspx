@@ -2,6 +2,9 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
      <h1>Carrito</h1>
+
+    <asp:GridView ID="dgvCarrito" runat="server"></asp:GridView>
+
 </asp:Content>
 
 
