@@ -1,0 +1,72 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteClientes.Master.cs" Inherits="Web.Clientes" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body style="padding:0px; background-color:#4b7583">
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-expand-sm bg-dark navbar-dark" style="text-align: left; display:block; background-image: -webkit-radial-gradient(top, circle cover, #4e7a89, #2e3441 80%);">
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="navbar-nav">
+                        <li><a id="Inicio" runat="server" href="~/Default.aspx" class="text-white" style="font-size: x-large; padding: 10px 10px; ">Inicio</a></li>
+                        <li><a runat="server" href="~/DefaultClientes.aspx" class="text-white" style="font-size: x-large; padding: 0px 30px;">Catalogo</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-md-offset-3">
+                    <ul class="navbar-nav">
+                        <li><a id="PerfilEnlace" runat="server" href="~/Perfil.aspx" class="text-white" style="font-size: x-large; padding: 10px 10px; ">Perfil</a></li>
+                        <li><a runat="server" href="~/Carrito.aspx" class="text-white" style="font-size: x-large; padding: 10px 10px;">
+                            <img src="carrito.png" style="width: 40px; height: 30px;" /></a></li>
+                        <li><a id="CerrarSesion" runat="server" href="~/Default.aspx" class="text-white" style="font-size: x-large; padding: 10px 10px;">Cerrar Sesion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>

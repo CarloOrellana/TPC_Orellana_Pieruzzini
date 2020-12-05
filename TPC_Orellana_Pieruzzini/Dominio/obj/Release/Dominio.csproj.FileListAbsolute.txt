@@ -1,0 +1,6 @@
+C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Dominio\bin\Release\Dominio.dll
+C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Dominio\bin\Release\Dominio.pdb
+C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Dominio\obj\Release\Dominio.csprojAssemblyReference.cache
+C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Dominio\obj\Release\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Dominio\obj\Release\Dominio.dll
+C:\Users\Administrador\Desktop\GitHub\TPC_Orellana_Pieruzzini\TPC_Orellana_Pieruzzini\Dominio\obj\Release\Dominio.pdb
