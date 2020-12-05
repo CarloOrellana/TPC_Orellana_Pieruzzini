@@ -4,8 +4,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net.Mail;
-using System.Net;
 using Dominio;
 
 namespace Negocios
@@ -175,7 +173,8 @@ namespace Negocios
         public void ModificarArticulo(Articulo nuevoArticulo)
         {
             AccesoDatos datos = new AccesoDatos();
-            datos.Setear("update Articulos set CodigoArticulo=@CODIGO, Descripcionarticulo=@DESCRIPCION ,Stock=@STOCK, Precio=@PRECIO where CodigoArticulo = @CODIGO");
+            datos.Setear("update Articulos set CodigoArticulo=@CODIGO, Descripcionarticulo=@DESCRIPCION ,Stock=@STOCK, Precio=@PRECIO where Id = @ID");
+            datos.Agregar("@ID", nuevoArticulo.Id);
             datos.Agregar("@CODIGO", nuevoArticulo.Codigo);
             datos.Agregar("@DESCRIPCION", nuevoArticulo.Descripcion);
             datos.Agregar("@STOCK", nuevoArticulo.Stock);
@@ -188,7 +187,8 @@ namespace Negocios
         public void BajaArticulo(Articulo nuevoArticulo)
         {
             AccesoDatos datos = new AccesoDatos();
-            datos.Setear("update Articulos set CodigoArticulo =@CODIGO, Estado =0 where CodigoArticulo =@CODIGO");
+            datos.Setear("update Articulos set CodigoArticulo =@CODIGO, Estado =0 where Id=@ID");
+            datos.Agregar("@ID", nuevoArticulo.Id);
             datos.Agregar("@CODIGO", nuevoArticulo.Codigo);
             datos.Agregar("@ESTADO", nuevoArticulo.Estado);
             datos.Query();
@@ -223,8 +223,9 @@ namespace Negocios
         public void ModificarMaterial(MateriaPrima nuevoMaterial)
         {
             AccesoDatos datos = new AccesoDatos();
-            datos.Setear("update MateriaPrima set  Descripcion=@DESCRIPCION ,Stock=@STOCK  where Descripcion=@DESCRIPCION");
-            
+            datos.Setear("update MateriaPrima set Descripcion=@DESCRIPCION ,Stock=@STOCK  where Id=@ID");
+
+            datos.Agregar("@ID", nuevoMaterial.Id);
             datos.Agregar("@DESCRIPCION", nuevoMaterial.Descripcion);
             datos.Agregar("@STOCK", nuevoMaterial.Stock);
           
@@ -232,150 +233,5 @@ namespace Negocios
             datos.Query();
             datos.Cerrar();
         }
-
-        public bool RegistrarPersona(Persona persona)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            try { 
-
-            //DATOS PERSONALES//
-            datos.Setear("INSERT INTO DatosPersonales(DNI,Nombre,Apellido,Direccion,Telefono,Mail,Cuil,Estado) VALUES(@DNI, @Nombre, @Apellido, @Direccion, @Telefono, @Mail, @Cuil, @Estado  )");
-           
-            datos.Agregar("@Apellido", persona.Apellido);
-            datos.Agregar("@Nombre", persona.Nombre);
-            datos.Agregar("@DNI",persona.DNI);
-            datos.Agregar("@Direccion",persona.Direccion);
-            datos.Agregar("@Telefono",persona.Telefono);
-            datos.Agregar("@Mail",persona.Mail);
-            datos.Agregar("@Cuil",persona.Cuil);
-            datos.Agregar("@Estado",persona.Estado);
-            if(persona.Estado)
-            {
-                datos.Query();
-                return true;
-            }
-            else { return false; }
-            }
-
-            finally { 
-            datos.Cerrar();
-            }
-
-        }
-
-        public bool RegistrarUsuario(Usuario usuario)
-        {
-            AccesoDatos datos = new AccesoDatos();
-
-            try { 
-            //USUARIOS//
-            datos.Setear("INSERT INTO Usuario(Contrasenia, IdRol ,DniDP) VALUES(@Contraseña,@IDrol ,@NombreUsuario)");
-
-            datos.Agregar("@Contraseña", usuario.Contraseña);
-            datos.Agregar("@IDrol", 2);
-            datos.Agregar("@NombreUsuario", usuario.NombreUsuario);
-                if(usuario.Contraseña != null)
-                {
-                    datos.Query();
-                    return true;
-                }
-                else { return false; }
-            
-            }
-            finally { 
-            datos.Cerrar();
-            }
-        }
-
-        public bool RegistrarRol(Rol rol)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            try { 
-            //ROL//
-            datos.Setear("INSERT INTO Rol(Descripcion,Estado) VALUES(@Descripcion,@Estado)");
-
-            datos.Agregar("@Descripcion", rol.NombreRol);
-            datos.Agregar("@Estado", rol.Estado);
-
-                if(rol.Estado)
-                {
-                    datos.Query();
-                    return true;
-                }
-                else { return false; }
-            
-            }
-
-            finally
-            {
-                datos.Cerrar();
-            }
-             
-        }
-
-        public bool ComprobarExitenciaUsuario(int NumUsuario)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            
-            try
-            {
-                datos.Agregar("@NumUsuario", NumUsuario);
-                datos.Setear("select DniDP from Usuario where DniDP = @NumUsuario");
-                datos.Consultar();
-
-                if (datos.Lector.Read())
-                {
-                    return false;
-                }
-                else { return true; }
-
-            }
-            finally
-            {
-                datos.Cerrar();
-            }
-        }
-
-        public bool EnviarMail(string mail, int usuario)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            try
-            {
-                datos.Agregar("@usuario", usuario);
-                datos.Agregar("@mail", mail);
-                datos.Setear("select  DniDP, Contrasenia, DP.Mail from Usuario inner join DatosPersonales as DP on DP.DNI = DniDP where DniDP = @usuario and DP.Mail = @mail ");
-                datos.Consultar();
-                if(datos.Lector.Read() == true)
-                {
-                    string Contraseña = datos.Lector.GetString(1);
-
-                    MailMessage correo = new MailMessage();
-                    correo.From = new MailAddress("TpCuatrimestral@gmail.com");//va correo desde donde se envia el mail.
-                    correo.To.Add(mail);//Añadis a donde se va a enviar el mail.
-                    correo.Subject = ("Recuperar Contraseña");//Asunto del correo.
-                    correo.Body = "Hola!! Usted solicito recuperar su contraseña: "+ Contraseña;//Mensaje del correo.
-                    correo.Priority = MailPriority.Normal;
-
-                    SmtpClient serverMail = new SmtpClient();
-                    serverMail.Credentials = new NetworkCredential("TpCuatrimestral@gmail.com", "Tpcuatrimestral1234");
-                    serverMail.Host = "smtp.gmail.com";
-                    serverMail.Port = 587;
-                    serverMail.EnableSsl = true;
-
-                    serverMail.Send(correo);
-
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            finally { datos.Cerrar(); }
-
-            
-
-        }
-
     }
 }
