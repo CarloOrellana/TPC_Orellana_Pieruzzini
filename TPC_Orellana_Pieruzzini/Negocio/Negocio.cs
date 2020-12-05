@@ -175,7 +175,8 @@ namespace Negocios
         public void ModificarArticulo(Articulo nuevoArticulo)
         {
             AccesoDatos datos = new AccesoDatos();
-            datos.Setear("update Articulos set CodigoArticulo=@CODIGO, Descripcionarticulo=@DESCRIPCION ,Stock=@STOCK, Precio=@PRECIO where CodigoArticulo = @CODIGO");
+            datos.Setear("update Articulos set CodigoArticulo=@CODIGO, Descripcionarticulo=@DESCRIPCION ,Stock=@STOCK, Precio=@PRECIO where Id = @ID");
+            datos.Agregar("@ID", nuevoArticulo.Id);
             datos.Agregar("@CODIGO", nuevoArticulo.Codigo);
             datos.Agregar("@DESCRIPCION", nuevoArticulo.Descripcion);
             datos.Agregar("@STOCK", nuevoArticulo.Stock);
@@ -188,7 +189,8 @@ namespace Negocios
         public void BajaArticulo(Articulo nuevoArticulo)
         {
             AccesoDatos datos = new AccesoDatos();
-            datos.Setear("update Articulos set CodigoArticulo =@CODIGO, Estado =0 where CodigoArticulo =@CODIGO");
+            datos.Setear("update Articulos set CodigoArticulo =@CODIGO, Estado =0 where Id=@ID");
+            datos.Agregar("@ID", nuevoArticulo.Id);
             datos.Agregar("@CODIGO", nuevoArticulo.Codigo);
             datos.Agregar("@ESTADO", nuevoArticulo.Estado);
             datos.Query();
@@ -223,8 +225,8 @@ namespace Negocios
         public void ModificarMaterial(MateriaPrima nuevoMaterial)
         {
             AccesoDatos datos = new AccesoDatos();
-            datos.Setear("update MateriaPrima set  Descripcion=@DESCRIPCION ,Stock=@STOCK  where Descripcion=@DESCRIPCION");
-            
+            datos.Setear("update MateriaPrima set Descripcion=@DESCRIPCION ,Stock=@STOCK  where Id=@ID");
+            datos.Agregar("@ID", nuevoMaterial.Id);
             datos.Agregar("@DESCRIPCION", nuevoMaterial.Descripcion);
             datos.Agregar("@STOCK", nuevoMaterial.Stock);
           
