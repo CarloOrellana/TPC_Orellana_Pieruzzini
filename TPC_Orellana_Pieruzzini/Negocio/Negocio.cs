@@ -94,8 +94,7 @@ namespace Negocios
                     aux.Direccion = datos.Lector.GetString(3);
                     aux.Telefono = datos.Lector.GetString(4);
                     aux.Mail = datos.Lector.GetString(5);
-
-
+                    //  aux.Cuil = datos.Lector.GetInt32(6);
                     lista.Add(aux);
                 }
             }
@@ -116,7 +115,7 @@ namespace Negocios
                 datos.Setear("select DniDP, Contrasenia from Usuario where DniDP = " + "'" + usuario + "'" + "AND Contrasenia = " + "'" + contraseña + "'");
                 datos.Consultar();
 
-                if(datos.Lector.Read())
+                if (datos.Lector.Read())
                 {
                     return true;
                 }
@@ -138,17 +137,17 @@ namespace Negocios
 
             try
             {
-                datos.Agregar("@id",usuario);
+                datos.Agregar("@id", usuario);
                 datos.Setear("select r.Id from Rol as r inner join Usuario as u on u.IdRol = r.Id where  u.DniDP= @id;");
                 datos.Consultar();
-                
+
                 if (datos.Lector.Read())
                 {
-                  rol = datos.Lector.GetInt32(0);
-                  return rol;
+                    rol = datos.Lector.GetInt32(0);
+                    return rol;
                 }
                 else { return 0; }
-                
+
             }
             finally
             {
@@ -159,17 +158,17 @@ namespace Negocios
         public void AgregarArticulo(Articulo nuevoArticulo)
         {
             AccesoDatos datos = new AccesoDatos();
-         
-                datos.Setear("INSERT INTO Articulos (CodigoArticulo, Descripcionarticulo ,Stock, Precio, Estado) VALUES (@CODIGO, @DESCRIPCION, @STOCK, @PRECIO, @ESTADO)");
-                datos.Agregar("@CODIGO", nuevoArticulo.Codigo);
-                datos.Agregar("@DESCRIPCION", nuevoArticulo.Descripcion);
-                datos.Agregar("@STOCK", nuevoArticulo.Stock);
-                datos.Agregar("@PRECIO", nuevoArticulo.Precio);
-                datos.Agregar("@ESTADO", nuevoArticulo.Estado);
 
-                datos.Query();
+            datos.Setear("INSERT INTO Articulos (CodigoArticulo, Descripcionarticulo ,Stock, Precio, Estado) VALUES (@CODIGO, @DESCRIPCION, @STOCK, @PRECIO, @ESTADO)");
+            datos.Agregar("@CODIGO", nuevoArticulo.Codigo);
+            datos.Agregar("@DESCRIPCION", nuevoArticulo.Descripcion);
+            datos.Agregar("@STOCK", nuevoArticulo.Stock);
+            datos.Agregar("@PRECIO", nuevoArticulo.Precio);
+            datos.Agregar("@ESTADO", nuevoArticulo.Estado);
+
+            datos.Query();
             datos.Cerrar();
-            
+
         }
 
         public void ModificarArticulo(Articulo nuevoArticulo)
@@ -181,7 +180,7 @@ namespace Negocios
             datos.Agregar("@DESCRIPCION", nuevoArticulo.Descripcion);
             datos.Agregar("@STOCK", nuevoArticulo.Stock);
             datos.Agregar("@PRECIO", nuevoArticulo.Precio);
-           
+
             datos.Query();
             datos.Cerrar();
         }
@@ -205,22 +204,20 @@ namespace Negocios
             return datos.Lector.GetString(1);
             datos.Cerrar();
         }
-
         public void AgregarMaterial(MateriaPrima nuevoMaterial)
         {
             AccesoDatos datos = new AccesoDatos();
 
             datos.Setear("INSERT INTO MateriaPrima (Descripcion,Stock) VALUES (@DESCRIPCION, @STOCK)");
-   
+
             datos.Agregar("@DESCRIPCION", nuevoMaterial.Descripcion);
             datos.Agregar("@STOCK", nuevoMaterial.Stock);
-           
+
 
             datos.Query();
             datos.Cerrar();
 
         }
-
 
         public void ModificarMaterial(MateriaPrima nuevoMaterial)
         {
@@ -229,7 +226,7 @@ namespace Negocios
             datos.Agregar("@ID", nuevoMaterial.Id);
             datos.Agregar("@DESCRIPCION", nuevoMaterial.Descripcion);
             datos.Agregar("@STOCK", nuevoMaterial.Stock);
-          
+
 
             datos.Query();
             datos.Cerrar();
@@ -238,29 +235,31 @@ namespace Negocios
         public bool RegistrarPersona(Persona persona)
         {
             AccesoDatos datos = new AccesoDatos();
-            try { 
-
-            //DATOS PERSONALES//
-            datos.Setear("INSERT INTO DatosPersonales(DNI,Nombre,Apellido,Direccion,Telefono,Mail,Cuil,Estado) VALUES(@DNI, @Nombre, @Apellido, @Direccion, @Telefono, @Mail, @Cuil, @Estado  )");
-           
-            datos.Agregar("@Apellido", persona.Apellido);
-            datos.Agregar("@Nombre", persona.Nombre);
-            datos.Agregar("@DNI",persona.DNI);
-            datos.Agregar("@Direccion",persona.Direccion);
-            datos.Agregar("@Telefono",persona.Telefono);
-            datos.Agregar("@Mail",persona.Mail);
-            datos.Agregar("@Cuil",persona.Cuil);
-            datos.Agregar("@Estado",persona.Estado);
-            if(persona.Estado)
+            try
             {
-                datos.Query();
-                return true;
-            }
-            else { return false; }
+
+                //DATOS PERSONALES//
+                datos.Setear("INSERT INTO DatosPersonales(DNI,Nombre,Apellido,Direccion,Telefono,Mail,Cuil,Estado) VALUES(@DNI, @Nombre, @Apellido, @Direccion, @Telefono, @Mail, @Cuil, @Estado  )");
+
+                datos.Agregar("@Apellido", persona.Apellido);
+                datos.Agregar("@Nombre", persona.Nombre);
+                datos.Agregar("@DNI", persona.DNI);
+                datos.Agregar("@Direccion", persona.Direccion);
+                datos.Agregar("@Telefono", persona.Telefono);
+                datos.Agregar("@Mail", persona.Mail);
+                datos.Agregar("@Cuil", persona.Cuil);
+                datos.Agregar("@Estado", persona.Estado);
+                if (persona.Estado)
+                {
+                    datos.Query();
+                    return true;
+                }
+                else { return false; }
             }
 
-            finally { 
-            datos.Cerrar();
+            finally
+            {
+                datos.Cerrar();
             }
 
         }
@@ -269,56 +268,59 @@ namespace Negocios
         {
             AccesoDatos datos = new AccesoDatos();
 
-            try { 
-            //USUARIOS//
-            datos.Setear("INSERT INTO Usuario(Contrasenia, IdRol ,DniDP) VALUES(@Contraseña,@IDrol ,@NombreUsuario)");
+            try
+            {
+                //USUARIOS//
+                datos.Setear("INSERT INTO Usuario(Contrasenia, IdRol ,DniDP) VALUES(@Contraseña,@IDrol ,@NombreUsuario)");
 
-            datos.Agregar("@Contraseña", usuario.Contraseña);
-            datos.Agregar("@IDrol", 2);
-            datos.Agregar("@NombreUsuario", usuario.NombreUsuario);
-                if(usuario.Contraseña != null)
+                datos.Agregar("@Contraseña", usuario.Contraseña);
+                datos.Agregar("@IDrol", 2);
+                datos.Agregar("@NombreUsuario", usuario.NombreUsuario);
+                if (usuario.Contraseña != null)
                 {
                     datos.Query();
                     return true;
                 }
                 else { return false; }
-            
+
             }
-            finally { 
-            datos.Cerrar();
+            finally
+            {
+                datos.Cerrar();
             }
         }
 
         public bool RegistrarRol(Rol rol)
         {
             AccesoDatos datos = new AccesoDatos();
-            try { 
-            //ROL//
-            datos.Setear("INSERT INTO Rol(Descripcion,Estado) VALUES(@Descripcion,@Estado)");
+            try
+            {
+                //ROL//
+                datos.Setear("INSERT INTO Rol(Descripcion,Estado) VALUES(@Descripcion,@Estado)");
 
-            datos.Agregar("@Descripcion", rol.NombreRol);
-            datos.Agregar("@Estado", rol.Estado);
+                datos.Agregar("@Descripcion", rol.NombreRol);
+                datos.Agregar("@Estado", rol.Estado);
 
-                if(rol.Estado)
+                if (rol.Estado)
                 {
                     datos.Query();
                     return true;
                 }
                 else { return false; }
-            
+
             }
 
             finally
             {
                 datos.Cerrar();
             }
-             
+
         }
 
         public bool ComprobarExitenciaUsuario(int NumUsuario)
         {
             AccesoDatos datos = new AccesoDatos();
-            
+
             try
             {
                 datos.Agregar("@NumUsuario", NumUsuario);
@@ -347,7 +349,7 @@ namespace Negocios
                 datos.Agregar("@mail", mail);
                 datos.Setear("select  DniDP, Contrasenia, DP.Mail from Usuario inner join DatosPersonales as DP on DP.DNI = DniDP where DniDP = @usuario and DP.Mail = @mail ");
                 datos.Consultar();
-                if(datos.Lector.Read() == true)
+                if (datos.Lector.Read() == true)
                 {
                     string Contraseña = datos.Lector.GetString(1);
 
@@ -355,7 +357,7 @@ namespace Negocios
                     correo.From = new MailAddress("TpCuatrimestral@gmail.com");//va correo desde donde se envia el mail.
                     correo.To.Add(mail);//Añadis a donde se va a enviar el mail.
                     correo.Subject = ("Recuperar Contraseña");//Asunto del correo.
-                    correo.Body = "Hola!! Usted solicito recuperar su contraseña: "+ Contraseña;//Mensaje del correo.
+                    correo.Body = "Hola!! Usted solicito recuperar su contraseña: " + Contraseña;//Mensaje del correo.
                     correo.Priority = MailPriority.Normal;
 
                     SmtpClient serverMail = new SmtpClient();
@@ -375,8 +377,88 @@ namespace Negocios
             }
             finally { datos.Cerrar(); }
 
-            
 
+
+        }
+
+        public List<Usuario> ListarUsuarios(int comprobar)
+        {
+            List<Usuario> lista = new List<Usuario>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.Setear("select * from Usuario where DniDP='" + comprobar + "'");
+                datos.Consultar();
+                while (datos.Lector.Read())
+                {
+                    Usuario aux = new Usuario();
+                    aux.id = datos.Lector.GetInt32(0);
+                    aux.Contraseña = datos.Lector.GetString(1);
+                    aux.NombreUsuario = datos.Lector.GetInt32(2);
+
+                    lista.Add(aux);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            datos.Cerrar();
+            return lista;
+        }
+        
+        public void ModificaPass(Usuario usuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+      
+            datos.Setear("update Usuario set Contrasenia=@Contrasenia where Id=@Id");
+            datos.Agregar("@Id", usuario.id);
+            datos.Agregar("@Contrasenia", usuario.Contraseña);         
+            datos.Query();
+            datos.Cerrar();
+        }
+        public List<Persona> ListarCliente(int comprobar)
+        {
+            List<Persona> lista = new List<Persona>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.Setear("select * from DatosPersonales  where DNI='" + comprobar + "'");
+                datos.Consultar();
+
+                while (datos.Lector.Read())
+                {
+                    Persona aux = new Persona();
+                    aux.DNI = datos.Lector.GetInt32(0);
+                    aux.Nombre = datos.Lector.GetString(1);
+                    aux.Apellido = datos.Lector.GetString(2);
+                    aux.Direccion = datos.Lector.GetString(3);
+                    aux.Telefono = datos.Lector.GetString(4);
+                    aux.Mail = datos.Lector.GetString(5);
+                    //  aux.Cuil = datos.Lector.GetInt32(6);
+                    lista.Add(aux);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            datos.Cerrar();
+            return lista;
+        }
+               
+        public void ModificaDP(Persona persona)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            datos.Setear("update DatosPersonales set Cuil=@Cuil,Telefono=@Tel,Direccion=@Dir where DNI=@DNI");
+            datos.Agregar("@DNI", persona.DNI);
+            datos.Agregar("@Cuil", persona.Cuil);
+            datos.Agregar("@Tel", persona.Telefono);
+            datos.Agregar("@Dir", persona.Direccion);
+            datos.Query();
+            datos.Cerrar();
         }
 
     }

@@ -34,7 +34,7 @@ namespace Web
                 datos.Direccion = txtDireccion.Text;
                 datos.Telefono = txtTelefono.Text;
                 datos.Mail = txtMail.Text;
-                datos.Cuil = Convert.ToInt64(txtCuil.Text);
+                datos.Cuil = Convert.ToInt32(txtCuil.Text);
                 datos.Estado = true;
 
                 datosUsu.Contraseña = txtContraseña.Text;

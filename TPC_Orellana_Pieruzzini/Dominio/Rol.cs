@@ -8,6 +8,8 @@ namespace Dominio
 {
     public class Rol
     {
+       public int Id { get; set; }
+
         public string NombreRol { get; set; }
 
         public bool Estado { get; set;}

@@ -8,11 +8,11 @@ namespace Dominio
 {
     public class Usuario
     {
-        public int id { get; set; }
-        public int NombreUsuario { get; set; } 
+        public int id { get; set; }//Id
+        public int NombreUsuario { get; set; } //DniDP
 
-        public string Contraseña { get; set; }
+        public string Contraseña { get; set; }//Contrasenia
 
-        public Rol Rol { get; set; }
+        public Rol Rol { get; set; }//IdRol
     }
 }

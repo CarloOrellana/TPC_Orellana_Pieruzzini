@@ -19,7 +19,6 @@ namespace Web
             dgvListas.DataBind();
             txtId.Visible = false;
         }
-
         
        public void btnAceptar_Click(object sender, EventArgs e)
        {

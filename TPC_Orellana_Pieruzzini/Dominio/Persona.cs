@@ -22,6 +22,6 @@ namespace Dominio
 
         public bool Estado { get; set; }
 
-        public long Cuil { get; set; }
+        public int Cuil { get; set; }
     }
 }
