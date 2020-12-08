@@ -20,7 +20,7 @@
         </div>
         
         <div class="col-md-3" style="text-align: center; margin: 1em 0; overflow: hidden;  padding-top: 30px;">
-            <asp:Button  runat="server" Text="Ventas" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:200px; height:50px;"/>
+            <asp:Button  runat="server" Text="Ventas" Onclick="btnVentas_Click" CssClass="btn btn-outline-secondary" style="color:white; border-color:white; width:200px; height:50px;"/>
         </div> 
         </div>
         

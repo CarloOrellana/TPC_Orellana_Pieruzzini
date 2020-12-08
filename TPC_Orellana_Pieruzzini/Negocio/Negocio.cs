@@ -599,5 +599,45 @@ namespace Negocios
                 datos.Cerrar();
             }
         }
-     }
+
+        public List<VentasRealizadas> ListarDetalleVenta()
+        {
+            List<VentasRealizadas> lista = new List<VentasRealizadas>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.Setear("select * from vw_ListadoDeVentas");
+                datos.Consultar();
+
+                while (datos.Lector.Read())
+                {
+                    VentasRealizadas aux = new VentasRealizadas();
+
+                    aux.Fecha = datos.Lector.GetDateTime(0);
+                    aux.NumeroFactura = (int)datos.Lector.GetInt64(1);
+                    aux.id = datos.Lector.GetInt32(2);
+                    aux.Nombre = datos.Lector.GetString(3);
+                    aux.Codigo = datos.Lector.GetString(4);
+                    aux.DescripcionArt = datos.Lector.GetString(5);
+                    aux.Total = datos.Lector.GetDecimal(6);
+                    aux.Descripcion = datos.Lector.GetString(7);
+
+
+
+                    lista.Add(aux);
+                 
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+            datos.Cerrar();
+            return lista;
+
+        }
+    }
+
 }
