@@ -204,6 +204,14 @@ select DP.DNI,DP.Nombre,DP.Apellido,DP.Direccion,DP.Telefono,DP.Mail,DP.Cuil fro
 inner join Usuario as U on U.DniDP=DP.DNI
 inner join ROl as R on R.Id=U.IdRol
 where R.Id=2 and DP.Estado=1
+go
+create view vw_ListadoDeVentas as
+select V.Fecha,V.NumeroFactura,U.Id as IdCliente,DP.Nombre as NombreCliente,A.CodigoArticulo,A.DescripcionArticulo,V.Total,(FP.Descripcion) as FormaDePago from DetalleVentas as DV
+inner join Ventas as V on V.Id=DV.IdVenta
+inner join Usuario as U on U.Id=V.IdUsuario
+inner join FormaPago as FP on FP.Id=V.IdFormaPago
+inner join Articulos as A on A.id=DV.IdArticulo
+inner join DatosPersonales as DP on DP.DNI=U.DniDP
 
 
 
