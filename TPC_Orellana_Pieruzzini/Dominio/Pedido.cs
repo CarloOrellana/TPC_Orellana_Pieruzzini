@@ -8,14 +8,15 @@ namespace Dominio
 {
      public class Pedido
     {
-        public Usuario Datos { get; set; }
+        public int Id { get; set; }
+        public int Datos { get; set; }
 
         public int NumeroFactura { get; set; }
 
         public DateTime Fecha { get; set; }
 
-        public Decimal Total { get; set; }
+        public decimal Total { get; set; }
 
-        public FormasDePago Pago { get; set; }
+        public int Pago { get; set; }
     }
 }

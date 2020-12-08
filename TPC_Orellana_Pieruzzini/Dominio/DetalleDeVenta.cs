@@ -8,9 +8,10 @@ namespace Dominio
 {
     public class DetalleDeVenta
     {
-        public Pedido Pedido { get; set; }
+        public int id { get; set; }
+        public int Pedido { get; set; }
 
-        public Articulo Articulos { get; set; }
+        public int Articulos { get; set; }
         
         public int Cantidad { get; set; } 
 

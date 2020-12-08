@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <asp:GridView ID="dgvListas" AutoGenerateColumns="False" runat="server" OnRowCommand="dgvListas_RowCommand">
+                <asp:GridView ID="dgvListas" AutoGenerateColumns="False" runat="server" OnRowCommand="dgvListas_RowCommand" style="color:white; border-color:white; text-align:center; width:900px; height:100px" >
                     <Columns>
                         <asp:ButtonField HeaderText="Editar" ButtonType="Link" Text="Editar" CommandName="bEditar" />
                         <asp:BoundField HeaderText="Id" DataField="Id" />
@@ -14,12 +14,14 @@
                     </Columns>
                 </asp:GridView>
             </div>
+        </div>
+        <div class="row">
             <div class="col">
                 <div class="col-md-10 mb-3">
                     <asp:TextBox ID="txtId" runat="server" ClientIDMode="Static" CssClass="form-control" Style="font-size: medium; border: medium" placeholder="ID"></asp:TextBox>
                 </div>
                 <div class="col-md-10 mb-3">
-                    <asp:TextBox ID="txtContrasena" runat="server" ClientIDMode="Static" CssClass="form-control" Style="font-size: medium; border: medium" placeholder="Contrasena"></asp:TextBox>
+                    <asp:TextBox ID="txtContrasena" runat="server" ClientIDMode="Static" CssClass="form-control" Style="font-size: medium; border: medium" placeholder="Contrasena" ></asp:TextBox>
                 </div>
             </div>
             <div class="col">
@@ -31,9 +33,9 @@
     </div>
 
     <div class="container">
-        <div class="row" style="margin-top: 80px">
+        <div class="row" style="margin-top: 80px ">
             <div class="col">
-                <asp:GridView ID="GridView1" AutoGenerateColumns="False" runat="server" OnRowCommand="GridView1_RowCommand">
+                <asp:GridView ID="GridView1" AutoGenerateColumns="False" runat="server" OnRowCommand="GridView1_RowCommand" style="color:white; border-color:white; text-align:center; width:900px; height:100px" >
                     <Columns>
                         <asp:ButtonField HeaderText="Cambiar" ButtonType="Link" Text="Cambiar" CommandName="bCambiar" />
                         <asp:BoundField HeaderText="DNI" DataField="DNI" />
@@ -45,6 +47,8 @@
                         </Columns>
                 </asp:GridView>
             </div>
+            </div>
+            <div class="row">
             <div class="col">
                 <div class="col-md-10 mb-3">
                     <asp:TextBox ID="txtDNI" runat="server" ClientIDMode="Static" CssClass="form-control" Style="font-size: medium; border: medium" placeholder="DNI"></asp:TextBox>

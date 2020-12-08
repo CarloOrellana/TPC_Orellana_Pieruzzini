@@ -23,6 +23,8 @@ namespace Web
 
                 int IdAux = Convert.ToInt32(Request.QueryString["id"]);
                 articulo = Busqueda.Find(i=> i.Id == IdAux);
+                txtCantidad.Visible = false;
+                
             }
             catch(Exception ex)
             {
@@ -60,7 +62,6 @@ namespace Web
 
         }
 
-
         protected void btnCarrito_Click(object sender, EventArgs e)
         {
             List<Articulo> Busqueda;
@@ -70,7 +71,11 @@ namespace Web
             int IdAux = Convert.ToInt32(Request.QueryString["id"]);
             articulo = Busqueda.Find(i => i.Id == IdAux);
 
-            int cantidad= Convert.ToInt32(txtCantidad.Text);
+            int cantidad = int.Parse(ddlCantidad.SelectedItem.Value);
+            if(cantidad==10)
+            {
+                cantidad = Convert.ToInt32(txtCantidad.Text);
+            }
 
             if (Session["Carrito"] == null)
             {
@@ -80,7 +85,17 @@ namespace Web
             AgregarDatosTabla((DataTable)Session["Carrito"], articulo.Id, articulo.Codigo.ToString(), articulo.Descripcion.ToString(), cantidad, (float)articulo.Precio) ;
             Response.Redirect("Carrito.aspx");
 
-
         }
+        
+        protected void ddlCantidad_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            var valor = int.Parse(ddlCantidad.SelectedItem.Value);
+            if(valor == 10)
+            {
+                ddlCantidad.Visible = false;
+                txtCantidad.Visible = true;
+            }
+        }
+
     }
 }

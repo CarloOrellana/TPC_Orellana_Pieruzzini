@@ -19,18 +19,27 @@ namespace Web
             int comprobar = (int)Session["Cliente"];
             dgvListas.DataSource = negocio.ListarUsuarios(comprobar);
             dgvListas.DataBind();
-            txtId.Visible = false;         
+            txtId.Visible = false;
+            txtContrasena.Visible = false;
+            btnAceptar.Visible = false;
             GridView1.DataSource = negocio.ListarCliente(comprobar);
             GridView1.DataBind();
             txtDNI.Visible = false;
+            txtDireccion.Visible = false;
+            txtTel.Visible = false;
+            txtCuil.Visible = false;
+            btnCambiar.Visible = false;
         }
 
-        protected void dgvListas_RowCommand(object sender, GridViewCommandEventArgs e)
+
+        protected void dgvListas_RowCommand(object sender, GridViewCommandEventArgs e)//Refencia para boton editar
         {
             int index = Convert.ToInt32(e.CommandArgument);
             txtId.Text = dgvListas.Rows[index].Cells[1].Text;
             txtContrasena.Text = dgvListas.Rows[index].Cells[3].Text;
             txtId.Visible = false;
+            txtContrasena.Visible = true;
+            btnAceptar.Visible = true;
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -55,6 +64,10 @@ namespace Web
             txtTel.Text = GridView1.Rows[index].Cells[5].Text;
             txtCuil.Text = GridView1.Rows[index].Cells[6].Text;
             txtDNI.Visible = false;
+            txtDireccion.Visible = true;
+            txtTel.Visible = true;
+            txtCuil.Visible = true;
+            btnCambiar.Visible = true;
         }
 
         protected void btnCambiar_Click(object sender, EventArgs e)

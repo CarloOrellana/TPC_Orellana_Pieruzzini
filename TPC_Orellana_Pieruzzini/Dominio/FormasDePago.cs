@@ -8,6 +8,7 @@ namespace Dominio
 {
     public class FormasDePago
     {
+        public int id { get; set; }
         public string Descripcion { get; set; }
     }
 }

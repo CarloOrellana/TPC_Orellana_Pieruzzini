@@ -461,5 +461,143 @@ namespace Negocios
             datos.Cerrar();
         }
 
-    }
+        public Persona DatosCliente(int usuario)
+          {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                Persona aux = new Persona();
+                datos.Agregar("@dni",usuario);
+                datos.Setear("select DNI, Nombre, Apellido, Direccion, Telefono, Mail from DatosPersonales where DNI = @dni");
+                datos.Consultar();
+                while(datos.Lector.Read())
+                {
+                    Persona persona = new Persona();
+                    persona.DNI =datos.Lector.GetInt32(0);
+                    persona.Nombre =datos.Lector.GetString(1);
+                    persona.Apellido =datos.Lector.GetString(2);
+                    persona.Direccion =datos.Lector.GetString(3);
+                    persona.Telefono =datos.Lector.GetString(4);
+                    persona.Mail =datos.Lector.GetString(5);
+                    aux = persona;
+                }
+                return aux;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerrar();
+                
+            }
+        }
+
+        public int DatosUsuario(int usuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Usuario aux = new Usuario();
+            
+            try
+            {
+                datos.Agregar("@usuario", usuario);
+                datos.Setear("select DniDP from Usuario where DniDP = @usuario");
+                datos.Consultar();
+
+                while(datos.Lector.Read())
+                {
+                    aux.id = datos.Lector.GetInt32(0);
+                }
+                return aux.id;
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
+        }
+
+        public int DatoTarjeta(string descripcion)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            FormasDePago aux = new FormasDePago();
+
+            try
+            {
+                datos.Agregar("@descripcion",descripcion);
+                datos.Setear("select id from FormaPago where Descripcion = @descripcion");
+                datos.Consultar();
+                if(datos.Lector.Read())
+                {
+                    aux.id = datos.Lector.GetInt32(0);
+                }
+                return aux.id;
+
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
+        }
+
+        public void Guardarventa(int Datos, int NumeroFactura, DateTime Fecha, Decimal Total, int Pago)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.Setear("INSERT INTO Ventas(IdUsuario, IdFormaPago, NumeroFactura, Fecha, Total ) VALUES(@usuario, @pago, @nFactura,@fecha, @total )");
+
+                datos.Agregar("@usuario",Datos);
+                datos.Agregar("@nFactura",NumeroFactura);
+                datos.Agregar("@fecha",Fecha);
+                datos.Agregar("@total",Total);
+                datos.Agregar("@pago",Pago);
+                datos.Query();
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
+        }
+
+        public int DatoPedido(int factura)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Pedido aux = new Pedido();
+            try
+            {
+                datos.Agregar("@factura",factura);
+                datos.Setear("SELECT Id FROM Ventas WHERE NumeroFactura = @factura");
+                datos.Consultar();
+                if(datos.Lector.Read())
+                {
+                    aux.Id = datos.Lector.GetInt32(0);
+                }
+                return aux.Id;
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
+        }
+
+        public void GuardarDetallesVentas(int pedido, int Articulos, int Cantidad ,decimal Precio)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.Setear("INSERT INTO DetalleVentas(IdVenta, IdArticulo, Cantidad, Precio) VALUES(@venta,@articulo, @cantidad,@precio)");
+                datos.Agregar("@venta",pedido);
+                datos.Agregar("@articulo",Articulos);
+                datos.Agregar("@cantidad",Cantidad);
+                datos.Agregar("@precio",Precio);
+                datos.Query();
+
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
+        }
+     }
 }
