@@ -72,11 +72,26 @@ create table Tarjetas
  IdUsuario int foreign key references Usuario(Id)
 )
 go
+create table EstadoCobro
+(
+ id int identity(1,1) not null primary key,
+ Descripcion char (50)not  null,
+Estado bit not null
+)
+go
+create table EstadoEntrega
+(
+ id int identity(1,1) not null primary key,
+ Descripcion char (50)not  null,
+ Estado bit not null
+)
 create table Ventas
 (
 Id int identity(1,1) primary key,
 IdUsuario int foreign key references Usuario (Id),
 IdFormaPago int foreign key references FormaPago (Id),
+IdEstadoEntrega int foreign key references EstadoEntrega(id),
+IdEstadoCobro int foreign key references EstadoCobro(id),
 NumeroFactura bigint not null,
 Fecha date not null,
 Total money not null
@@ -185,6 +200,18 @@ insert into Usuario(Contrasenia,IdRol,DniDP)values('Cliente',2,22222222)
 insert into Usuario(Contrasenia,IdRol,DniDP)values('Operario',3,33333333)
 insert into Usuario(Contrasenia,IdRol,DniDP)values('Operario',2,44)
 insert into Usuario(Contrasenia,IdRol,DniDP)values('Admin',2,55)
+
+
+/*Estado Cobro*/
+insert into EstadoCobro(Descripcion,Estado) values('Cobrado',1)
+insert into EstadoCobro(Descripcion,Estado) values('Adeudado',1)
+insert into EstadoCobro(Descripcion,Estado) values('Banco',1)
+
+/*Estado Entrega*/
+insert into EstadoEntrega(Descripcion,Estado) values('En Proceso',1)
+insert into EstadoEntrega(Descripcion,Estado) values('En Camino',1)
+insert into EstadoEntrega(Descripcion,Estado) values('Entragado',1)
+insert into EstadoEntrega(Descripcion,Estado) values('Demorado',1)
 
 
 

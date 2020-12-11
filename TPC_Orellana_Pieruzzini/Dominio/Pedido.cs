@@ -18,5 +18,7 @@ namespace Dominio
         public decimal Total { get; set; }
 
         public int Pago { get; set; }
+        public int EstadoEntrega { get; set; }
+        public int EstadoCobro { get; set; }
     }
 }
