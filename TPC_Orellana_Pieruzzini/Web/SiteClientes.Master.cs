@@ -18,7 +18,7 @@ namespace Web
             if(comprobar == 0)
             {
                 PerfilEnlace.Visible = false;
-                CerrarSesion.Visible = false;
+                btnCerrarSesion.Visible = false;
               
             }
             else
@@ -26,6 +26,12 @@ namespace Web
                 Inicio.Visible = false;
               
             }
+        }
+
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session["Carrito"] = null;
+            Response.Redirect("Default.aspx");
         }
     }
 }

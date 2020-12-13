@@ -24,6 +24,7 @@ namespace Web
                 int IdAux = Convert.ToInt32(Request.QueryString["id"]);
                 articulo = Busqueda.Find(i=> i.Id == IdAux);
                 txtCantidad.Visible = false;
+                btnCruz.Visible = false;
                 
             }
             catch(Exception ex)
@@ -94,8 +95,16 @@ namespace Web
             {
                 ddlCantidad.Visible = false;
                 txtCantidad.Visible = true;
+                btnCruz.Visible = true;
             }
         }
 
+        protected void btnCruz_Click(object sender, EventArgs e)
+        {
+            ddlCantidad.SelectedIndex=0;
+            ddlCantidad.Visible = true;
+            txtCantidad.Visible = false;
+            btnCruz.Visible = false;
+        }
     }
 }

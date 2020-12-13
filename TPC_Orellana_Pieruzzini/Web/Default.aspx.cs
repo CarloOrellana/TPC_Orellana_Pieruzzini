@@ -35,8 +35,17 @@ namespace Web
                 else if(negocio.Rol(usuario) == 2)
                 {
                     Session["Cliente"] = usuario;
-                    Response.Redirect("DefaultClientes.aspx");
+                    if(Session["Carrito"] != null)
+                    {
+                        Response.Redirect("Carrito.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("DefaultClientes.aspx");
+                    }
+                    
                 }
+
                 
                 
             }

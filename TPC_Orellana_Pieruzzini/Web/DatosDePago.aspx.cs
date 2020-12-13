@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 using Dominio;
 using Negocios;
 using System.Data;
+using System.Threading;
+using System.Globalization;
+
 
 namespace Web
 {
@@ -57,8 +60,9 @@ namespace Web
             DataTable td = (DataTable)Session["Carrito"];
 
             pedido.Datos = neg.DatosUsuario(usuario);
-            pedido.NumeroFactura =rnd.Next();
-            pedido.Fecha = DateTime.Today;
+            //pedido.NumeroFactura =rnd.Next();
+            pedido.NumeroFactura = 1234;
+            pedido.Fecha = DateTime.Now;
 
             foreach(DataRow row in td.Rows)
             {

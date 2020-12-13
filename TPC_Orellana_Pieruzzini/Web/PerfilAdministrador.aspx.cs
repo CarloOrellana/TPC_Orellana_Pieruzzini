@@ -19,9 +19,19 @@ namespace Web
             dgvListas.DataSource = negocio.ListarUsuarios(comprobar);
             dgvListas.DataBind();
             txtId.Visible = false;
+            txtContrasena.Visible = false;
+            btnAceptar.Visible = false;
+           
             GridView1.DataSource = negocio.ListarCliente(comprobar);
             GridView1.DataBind();
             txtDNI.Visible = false;
+            txtDNI.Visible = false;
+            txtDireccion.Visible = false;
+            txtDireccion.Visible = false;
+            txtTel.Visible = false;
+            txtCuil.Visible = false;
+            btnCambiar.Visible = false;
+
         }
 
         protected void dgvListas_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -30,6 +40,8 @@ namespace Web
             txtId.Text = dgvListas.Rows[index].Cells[1].Text;
             txtContrasena.Text = dgvListas.Rows[index].Cells[3].Text;
             txtId.Visible = false;
+            txtContrasena.Visible = true;
+            btnAceptar.Visible = true;
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -53,7 +65,12 @@ namespace Web
             txtDireccion.Text = GridView1.Rows[index].Cells[4].Text;
             txtTel.Text = GridView1.Rows[index].Cells[5].Text;
             txtCuil.Text = GridView1.Rows[index].Cells[6].Text;
-            txtDNI.Visible = false;
+           
+            txtDireccion.Visible = true;
+            txtDireccion.Visible = true;
+            txtTel.Visible = true;
+            txtCuil.Visible = true;
+            btnCambiar.Visible = true;
         }
 
         protected void btnCambiar_Click(object sender, EventArgs e)

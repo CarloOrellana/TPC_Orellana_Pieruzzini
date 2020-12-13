@@ -52,7 +52,8 @@
                         <li><a id="PerfilEnlace" runat="server" href="~/Perfil.aspx" class="text-white" style="font-size: x-large; padding: 10px 10px; ">Perfil</a></li>
                         <li><a runat="server" href="~/Carrito.aspx" class="text-white" style="font-size: x-large; padding: 10px 10px;">
                             <img src="carrito.png" style="width: 40px; height: 30px;" /></a></li>
-                        <li><a id="CerrarSesion" runat="server" href="~/Default.aspx" class="text-white" style="font-size: x-large; padding: 10px 10px;">Cerrar Sesion</a></li>
+                        
+                        <li><asp:Button ID="btnCerrarSesion" runat="server" OnClick="btnCerrarSesion_Click" Text="Cerrar Sesion" CssClass="btn btn-outline-secondary" style="font-size: large; color: white; width: 200px; text-align: center; display: inline-block" /></li>
                     </ul>
                 </div>
             </div>

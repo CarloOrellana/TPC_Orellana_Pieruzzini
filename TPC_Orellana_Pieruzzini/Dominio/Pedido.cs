@@ -15,7 +15,7 @@ namespace Dominio
 
         public DateTime Fecha { get; set; }
 
-        public decimal Total { get; set; }
+        public Decimal Total { get; set; }
 
         public int Pago { get; set; }
         public int EstadoEntrega { get; set; }
