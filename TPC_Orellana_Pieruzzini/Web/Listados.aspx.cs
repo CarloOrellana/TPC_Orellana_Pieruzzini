@@ -58,12 +58,16 @@ namespace Web
 
         }
 
-        protected void btnVentas_Click(object sender, EventArgs e)
+        /*protected void btnVentas_Click(object sender, EventArgs e)
         {
             j = 4;
             Negocio negocio = new Negocio();
             dgvListas.DataSource = negocio.ListarDetalleVenta();
             dgvListas.DataBind();
+        }*/
+        protected void btnVentas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Seguimiento.aspx");
         }
     }
 }
